@@ -10,16 +10,14 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
 export class AdvancedPieComponent {
 
   eventTypes: any[] = eventTypes;
-  view: [number, number] = [700, 400];
+  view: [number, number] = [500, 300];
 
   // options
   gradient: boolean = false;
   showLegend: boolean = true;
   showLabels: boolean = true;
-  label:string = '';
-
-  isDoughnut: boolean = false;
-  animations: boolean = false; 
+  label: string = '';
+  animations: boolean = false;
 
   colorScheme: Color = {
     name: 'custom',

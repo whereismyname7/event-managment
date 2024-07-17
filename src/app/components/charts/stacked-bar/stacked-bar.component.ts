@@ -10,7 +10,7 @@ import { totalEvents } from '../dummyData';
 export class StackedBarComponent {
 
   events = totalEvents;
-  view: [number,number] = [700,370]
+  view: [number,number] = [500,350]
 
   // options
   legendPosition: LegendPosition = LegendPosition.Below;
@@ -32,7 +32,7 @@ export class StackedBarComponent {
   };
 
   yScaleMax: number = 25000;
-  barPadding: number = 40;
+  barPadding: number = 25;
 
 
 }
