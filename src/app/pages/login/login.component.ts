@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { AppRoutes } from '../../app.constants';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
+  constructor(private router: Router) {}
+
   submitted = false;
 
   loginForm = new FormGroup({
@@ -24,7 +29,7 @@ export class LoginComponent {
     this.submitted = true;
     if (this.loginForm.valid) {
       this.submitted = false;
-      // this.router.navigate([ROUTES.DASHBOARD]);
+      this.router.navigate([AppRoutes.DASHBOARD]);
     }
   }
 
