@@ -1,8 +1,6 @@
-
-<app-header></app-header>
-
+<app-header [ngClass]="{ 'hidden': !show }"></app-header>
 
 <router-outlet/>
 
-<app-footer></app-footer>
+<app-footer [ngClass]="{ 'hidden': !show }"></app-footer>
 
