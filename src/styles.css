@@ -1,12 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
- @import 'bootstrap/dist/css/bootstrap.css';
- @import 'bootstrap-icons/font/bootstrap-icons.css';
 
- html[lang="ar"] body {
+@font-face {
+    font-family: 'Neo Sans Arabic';
+    src: url('assets/fonts/alfont_com_AlFont_com_NeoSansArabic.ttf') format('truetype');
+}
+
+
+:lang(ar) {
     direction: rtl;
-  }
-  
-  html[lang="en"] body {
+}
+
+:lang(en) {
     direction: ltr;
-  }
+}
+

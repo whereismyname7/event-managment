@@ -1,0 +1,35 @@
+main{
+    background: linear-gradient(112.9deg, #1D3557 0%, #264653 50%, #5FB6AB 100%);
+}
+#content {
+    border-radius: 2em;
+}
+h2{
+    color: #264653;
+    font-family: 'Neo Sans Arabic';
+}
+label{
+    color: #1D3557;
+
+}
+
+.form-control{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 0.1em solid #1D3557;
+}
+
+p{
+    color: #707070;
+}
+
+a{
+    color:#264653;
+}
+
+#errormsg{
+    color:#9D1C1C;
+    background: #F3E3E3;
+    border: 0.1em solid #9D1C1C;
+    border-radius: 0.25em;
+}
