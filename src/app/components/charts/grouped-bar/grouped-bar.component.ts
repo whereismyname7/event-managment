@@ -20,11 +20,9 @@ export class GroupedBarComponent {
   xAxis: boolean = true;
   yAxis: boolean = true;
 
-  // animations: boolean = true; // animations on load
-
   showGridLines: boolean = true; // grid lines
 
-  // showDataLabel: boolean = true; // numbers on bars
+  showDataLabel: boolean = true; // numbers on bars
 
   colorScheme: Color = {
     name: 'custom',

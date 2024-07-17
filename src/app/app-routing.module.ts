@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 import { StackedBarComponent } from './components/charts/stacked-bar/stacked-bar.component';
 import { GroupedBarComponent } from './components/charts/grouped-bar/grouped-bar.component';
+import { AdvancedPieComponent } from './components/charts/advanced-pie/advanced-pie.component';
 
 const routes: Routes = [
   {path: AppRoutes.LOGIN, component: LoginComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
 
   //remove
   {path: "stacked-bar", component: StackedBarComponent},
-  {path: "grouped-bar", component: GroupedBarComponent}
+  {path: "grouped-bar", component: GroupedBarComponent},
+  {path: "advanced-pie", component: AdvancedPieComponent}
   //
 ];
 

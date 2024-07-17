@@ -1,13 +1,18 @@
-<div class="container-fluid ">
-    <p class="subtitle mt-2">Total Events</p>
+
+<div class="container">
+    <p class="subtitle mt-2">طبيعة الفعاليات</p>
+</div>
+
+<div class="ltr container d-flex justify-content-center align-items-center">
     <div class="row">
-        <div class=" d-flex justify-content-center align-items-center">
+        <div>
             <ngx-charts-advanced-pie-chart
             [view]="view"
             [scheme]="colorScheme"
             [results]="eventTypes"
             [gradient]="gradient"
             [animations]="animations"
+            [label]="label"
             >
         </ngx-charts-advanced-pie-chart>
         </div>
