@@ -316,3 +316,19 @@ export var totalEvents = [
       ]
     }
   ];
+  export var eventTypes = [
+    {
+      "name": "on-site",
+      "value": Math.floor(Math.random() * 50001),
+      "extra": {
+        "code": "ons"
+      }
+    },
+    {
+      "name": "online",
+      "value": Math.floor(Math.random() * 50001),
+      "extra": {
+        "code": "onl"
+      }
+    },
+  ];
