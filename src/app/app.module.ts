@@ -16,6 +16,8 @@ import { BreadcrumbsComponent } from './components/layouts/breadcrumbs/breadcrum
 import { MessageComponent } from './components/layouts/message/message.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxChartsModule
   ],
   providers: [
     provideClientHydration()

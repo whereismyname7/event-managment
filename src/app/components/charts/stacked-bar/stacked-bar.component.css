@@ -1,0 +1,19 @@
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px; /* Adjust width as needed */
+    height: 12px; /* Adjust height as needed */
+    margin-right: 5px; /* Adjust spacing between color box and text */
+    border-radius: 2px;
+}
+
+.subtitle{
+    font-family: Neo Sans;
+font-size: 26px;
+font-weight: 500;
+color: #264653;
+}

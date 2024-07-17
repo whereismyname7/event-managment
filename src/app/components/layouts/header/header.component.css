@@ -1,0 +1,53 @@
+header {
+
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 1); */
+    height: 11vh;
+    color: black;
+    background-color: white;
+    font-size: large;
+    direction: rtl;
+
+}
+
+.header-logo {
+    max-height: 6rem;
+
+}
+
+.header-logo:hover {
+    max-height: 6rem;
+
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+link {
+    color: black;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+.link:hover {
+    color: #2A9D8F;
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+.arrow-icon{
+    transition: ease-in-out 0.3s;
+}
+.arrow-icon:hover{
+    color: #2A9D8F;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}

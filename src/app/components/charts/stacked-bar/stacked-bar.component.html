@@ -1,1 +1,25 @@
-<p>stacked-bar works!</p>
+<div class="container">
+    <p class="subtitle mt-2">Total Events</p>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+            <ngx-charts-bar-vertical-stacked
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="events"
+              [xAxis]="xAxis"
+              [yAxis]="yAxis"
+              [showGridLines]="showGridLines"
+              [yScaleMax]="yScaleMax"
+              [barPadding]="barPadding"
+            >
+            </ngx-charts-bar-vertical-stacked>
+        </div>
+    </div>
+    
+    <div class="row mt-3">
+        <div class="col-12 d-flex justify-content-center">
+            <span class="legend-item mx-4"><span class="legend-color" style="background-color: #61b6ab;"></span> online</span>
+            <span class="legend-item mx-4"><span class="legend-color" style="background-color: #ae4390;"></span> on-site</span>
+        </div>
+    </div>
+</div>
