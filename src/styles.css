@@ -9,11 +9,10 @@
 }
 
 
-:lang(ar) {
+html[lang="ar"] body {
     direction: rtl;
-}
-
-:lang(en) {
+  }
+  
+  html[lang="en"] body {
     direction: ltr;
-}
-
+  }
