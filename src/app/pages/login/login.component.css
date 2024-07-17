@@ -33,3 +33,13 @@ a{
     border: 0.1em solid #9D1C1C;
     border-radius: 0.25em;
 }
+
+.invalid {
+    border-color: #9D1C1C;
+    color: #9D1C1C;
+  }
+
+  .valid {
+    color: #1D3557;
+    border-color: #1D3557;
+  }
