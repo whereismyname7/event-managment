@@ -16,6 +16,8 @@ export class AdvancedPieComponent {
   gradient: boolean = false;
   showLegend: boolean = true;
   showLabels: boolean = true;
+  label:string = '';
+
   isDoughnut: boolean = false;
   animations: boolean = false; 
 

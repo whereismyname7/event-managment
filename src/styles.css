@@ -2,6 +2,7 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
+
 @font-face {
     font-family: 'Neo Sans Arabic';
     src: url('assets/fonts/alfont_com_AlFont_com_NeoSansArabic.ttf') format('truetype');
@@ -15,3 +16,4 @@
 :lang(en) {
     direction: ltr;
 }
+
