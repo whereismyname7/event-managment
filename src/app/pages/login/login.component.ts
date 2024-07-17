@@ -37,5 +37,31 @@ export class LoginComponent {
     return this.loginForm.controls.password.errors?.['minlength']
   }
 
+  get isUsernameValid(): boolean {
+    const usernameFormControl = this.loginForm.controls.username;
+    return (
+      (this.submitted) ||
+      (usernameFormControl.touched && usernameFormControl.invalid)
+    );
+  }
+  
+  get isPasswordValid(): boolean {
+    const passwordFormControl = this.loginForm.controls.password;
+    return (
+      (this.submitted) ||
+      (passwordFormControl.touched && passwordFormControl.invalid)
+    );
+  }
+  
+  get isUsernameInvalid(): boolean {
+    const usernameFormControl = this.loginForm.controls.username;
+    return this.submitted && usernameFormControl.invalid;
+  }
+  
+  get isPasswordInvalid(): boolean {
+    const passwordFormControl = this.loginForm.controls.password;
+    return this.submitted && passwordFormControl.invalid;
+  }
+
 
 }
