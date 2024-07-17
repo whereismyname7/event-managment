@@ -10,7 +10,7 @@ import { totalAttendance } from '../dummyData';
 export class GroupedBarComponent {
 
   attendence = totalAttendance;
-  view: [number,number] = [700,370]
+  view: [number,number] = [540,350]
 
   // options
   legendPosition: LegendPosition = LegendPosition.Below;
@@ -31,7 +31,8 @@ export class GroupedBarComponent {
     domain: ['#0496ff','#fa5b7e']
   };
 
-  yScaleMax: number = 25000;
-  barPadding: number = 4;
+  yScaleMax: number = 20000;
+  barPadding: number = 2;
+
 
 }

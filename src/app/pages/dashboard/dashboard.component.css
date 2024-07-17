@@ -1,0 +1,17 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 3vh;
+    min-height: 68vh;
+    min-width: 80vw;
+}
+.card {
+    margin: 1vh;
+    padding: 1vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: black;
+    font-size: large;
+    direction: rtl;
+}
