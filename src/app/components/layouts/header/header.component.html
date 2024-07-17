@@ -5,17 +5,17 @@
             <img src="../../../../assets/images/logo.png" class="mx-2 header-logo">
             <div class="mx-3 link">
                 <a>
-                     الرئيسية
+                    {{ 'HOMEPAGE' | translate }}
                 </a>
             </div>
             <div class="mx-2 link">
                 <a>
-                    إدارة الفعاليات
+                    {{ 'EVENT_MANAGMENT' | translate }}
                 </a>
             </div>
         </nav>
-        <div class="mx-2 link">
-             EN
+        <div class="mx-2 link" (click)="switchLang()">
+            {{ 'LANGUAGE' | translate }} 
             <i class="bi bi-globe mx-1"></i>
         </div>
     </div>
@@ -24,7 +24,7 @@
         <div >
             <i class="bi bi-person-circle mx-1 link"></i>
             <span>
-                مرحباً
+                {{ 'WELCOME' | translate }}
             </span>
         </div>
         <div class="text-end arrow-icon"><i class="bi bi-caret-down "></i> </div>

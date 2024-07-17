@@ -1,0 +1,28 @@
+{
+    "WELCOME_MESSAGE": "مرحبًا بك في منصة ترويح",
+    "USERNAME": "اسم المستخدم",
+    "PASSWORD": "كلمة المرور",
+    "LOGIN": "تسجيل الدخول",
+    "REGISTRATION": "للتسجيل في فعالية",
+    "CLICK_HERE": "اضغط هنا",
+    "ERROR_MESSAGE_1": "الرجاء إدخال اسم المستخدم أو كلمة المرور",
+    "ERROR_MESSAGE_2": "كلمة المرور يجب أن تتكون من 8 رموز على الأقل",
+
+    "ONLINE": "عن بعد",
+    "ON-SITE": "حضورية",
+    "MALE": "ذكر",
+    "FEMALE": "أنثى",
+    "TOTAL_ATTENDENCE": "إجمالي الحضور",
+    "TOTAL_EVENTS": "إجمالي الفعاليات",
+    "EVENTS_TYPES": "طبيعة الفعاليات",
+    "EVENTS_CATEGORIES": "تصنيف الفعاليات",
+
+    "HOMEPAGE": "الرئيسية",
+    "EVENT_MANAGMENT": "إدارة الفعاليات",
+    "WELCOME": "مرحبًا بك",
+    "YEAR": "2024",
+    "POWERED_BY": "تشغيل بواسطة",
+    
+    "LANGUAGE": "En"
+  }
+  

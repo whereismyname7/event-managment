@@ -17,3 +17,7 @@ html[lang="ar"] body {
     direction: ltr;
   }
 
+  .hidden {
+    display: none;
+  }
+
