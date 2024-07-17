@@ -1,14 +1,27 @@
 {
-    "WELOCOME_MESSAGE": "مرحبًا بك في منصة ترويح",
-    "USERNAME": "اسم المستخدم",
-    "PASSWORD": "كلمة المرور",
-    "LOGIN": "تسجيل الدخول",
-    "REGISTRATION": "للتسجيل في فعالية",
-    "CLICK_HERE": "اضغط هنا",
+    "WELCOME_MESSAGE": "Welcome to Tarwih platform",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "LOGIN": "Login",
+    "REGISTRATION": "To register for an event",
+    "CLICK_HERE": "Click here",
+    "ERROR_MESSAGE_1": "Please enter username or password",
+    "ERROR_MESSAGE_2": "Password must be at least 8 characters long",
+
+    "ONLINE": "Online",
+    "ON-SITE": "On-site",
+    "MALE": "Male",
+    "FEMALE": "Female",
+    "TOTAL_ATTENDENCE": "Total attendance",
+    "TOTAL_EVENTS": "Total events",
+    "EVENTS_TYPES": "Nature of events",
+    "EVENTS_CATEGORIES": "Event categories",
+
+    "HOMEPAGE": "Home",
+    "EVENT_MANAGMENT": "Event Managment",
+    "WELCOME": "WELCOME",
+    "YEAR": "2024",
+    "POWERED_BY": "Powered by",
     
-    "SIGN_IN": "Sign in",
-    "WELCOME_SARAH": "Welcome Sarah",
-    "HOME_PAGE": "Home page",
-    "LANGUAGE": "عربي"
-  }
-  
+    "LANGUAGE": "Ar"
+}

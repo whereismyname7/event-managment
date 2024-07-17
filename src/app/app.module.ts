@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { ReactiveFormsModule } from "@angular/forms";
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layouts/header/header.component';
@@ -17,10 +16,9 @@ import { MessageComponent } from './components/layouts/message/message.component
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,14 +44,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     ReactiveFormsModule,
     NgxChartsModule,
+    HttpClientModule, // Make sure HttpClientModule is imported
     TranslateModule.forRoot({
+      defaultLanguage: 'ar',
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      },
-      defaultLanguage: 'ar'
-  })
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     provideClientHydration()
