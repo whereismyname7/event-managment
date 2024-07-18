@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { AppRoutes } from '../../app.constants';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 @Component({
@@ -11,7 +13,7 @@ import { AppRoutes } from '../../app.constants';
 })
 
 export class LoginComponent {
-  constructor(private router: Router) {}
+  constructor(public translate: TranslateService, private router: Router) {}
 
   submitted = false;
 
@@ -67,6 +69,12 @@ export class LoginComponent {
     const passwordFormControl = this.loginForm.controls.password;
     return this.submitted && passwordFormControl.invalid;
   }
+  switchLang() {
+    const currentLang = this.translate.currentLang;
+    const newLang = currentLang === 'ar' ? 'en' : 'ar';
+    this.translate.use(newLang);
+    document.documentElement.setAttribute('lang',newLang) 
+   }
 
 
 }
