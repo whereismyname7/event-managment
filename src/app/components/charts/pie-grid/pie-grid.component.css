@@ -2,3 +2,8 @@
     font-weight: 500;
     color: #264653;
 }
+
+.pos{
+    position: relative;
+    left: 0.5%;
+}

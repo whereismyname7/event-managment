@@ -8,3 +8,8 @@
 .ltr{
     direction: ltr;
 }
+
+.pos{
+    position: relative;
+    left: 18%;
+}

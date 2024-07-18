@@ -10,7 +10,7 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
 })
 export class PieGridComponent {
   eventCategories: any[] = eventCategories;
-  view: [number, number] = [660, 350];
+  view: [number, number] = [640, 200];
 
   
   colorScheme: Color = {

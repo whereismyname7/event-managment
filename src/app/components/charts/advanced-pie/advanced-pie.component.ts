@@ -10,7 +10,7 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
 export class AdvancedPieComponent {
 
   eventTypes: any[] = eventTypes;
-  view: [number, number] = [500, 300];
+  view: [number, number] = [660, 180];
 
   // options
   gradient: boolean = false;
@@ -28,6 +28,10 @@ export class AdvancedPieComponent {
 
   constructor() {
     Object.assign(this, { this: this.eventTypes });
+  }
+
+  percentageFormatting(value: number): string {
+    return `${value.toFixed(0)}`;
   }
 
 }
