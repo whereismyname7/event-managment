@@ -31,7 +31,7 @@
                     <input class="form-control" id="password" type="password" formControlName="password" [ngClass]="{ 'invalid': isPasswordValid, 'valid': !isPasswordInvalid }">
 
                 </div>
-                <app-button></app-button>
+                <app-button [text]="'LOGIN' | translate"></app-button>
             </form>
             <p class="text-center">{{ 'REGISTRATION' | translate }} <a href="#"> {{ 'CLICK_HERE' | translate }}</a></p>
 
