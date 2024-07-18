@@ -1,9 +1,7 @@
 .dashboard {
     display: flex;
     flex-direction: column;
-    padding: 3vh;
-    min-height: 68vh;
-    min-width: 80vw;
+    min-width: 90vw;
     font-family: 'Neo Sans Arabic';
 }
 .card {
@@ -14,5 +12,10 @@
     background-color: white;
     color: black;
     font-size: large;
-    direction: rtl;
+    flex: 1 1 45%;
+    max-width: 48%;
+}
+
+.container-fluid{
+    overflow: hidden;
 }
