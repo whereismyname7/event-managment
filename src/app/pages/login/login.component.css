@@ -43,3 +43,16 @@ a{
     color: #1D3557;
     border-color: #1D3557;
   }
+  .no-outline:focus {
+    box-shadow: none !important;
+  }
+  .link {
+    color:#ffff;
+    transition: ease-in-out 0.3s;
+}
+
+.link:hover {
+    cursor: pointer;
+    color: #c6d7d7;
+    transition: ease-in-out 0.3s;
+}

@@ -1,4 +1,9 @@
 <main class="d-flex vh-100">
+    <div class="link position-absolute m-2" (click)="switchLang()">
+        {{ 'LANGUAGE' | translate }} 
+        <i class="bi bi-globe mx-1"></i>
+    </div>
+
     <div id="content" class="d-flex justify-content-evenly align-items-center w-75 m-auto p-5 bg-white">
 
         <div id="image">
@@ -6,7 +11,7 @@
         </div>
 
         <div class="d-flex flex-column" id="form">
-
+            
             <h2 class="mb-3 fw-bold"> {{ 'WELCOME_MESSAGE' | translate }} </h2>
             <div class="d-flex align-items-center mt-3" id="errormsg"
                 *ngIf="submitted && (loginForm.controls.username.invalid || loginForm.controls.password.invalid)">
@@ -24,11 +29,11 @@
                 <div class="my-4">
 
                     <label for="username" [ngClass]="{ 'invalid': isUsernameValid, 'valid': !isUsernameInvalid }">{{ 'USERNAME' | translate }}</label>
-                    <input class="form-control" id="username" type="text" formControlName="username" [ngClass]="{ 'invalid': isUsernameValid, 'valid': !isUsernameInvalid }">
+                    <input class="form-control no-outline" id="username" type="text" formControlName="username" [ngClass]="{ 'invalid': isUsernameValid, 'valid': !isUsernameInvalid }">
                 </div>
                 <div class="my-4">
                     <label for="password" [ngClass]="{ 'invalid': isPasswordValid, 'valid': !isPasswordInvalid }">{{ 'PASSWORD' | translate }}</label>
-                    <input class="form-control" id="password" type="password" formControlName="password" [ngClass]="{ 'invalid': isPasswordValid, 'valid': !isPasswordInvalid }">
+                    <input class="form-control no-outline" id="password" type="password" formControlName="password" [ngClass]="{ 'invalid': isPasswordValid, 'valid': !isPasswordInvalid }">
 
                 </div>
                 <app-button [text]="'LOGIN' | translate"></app-button>
