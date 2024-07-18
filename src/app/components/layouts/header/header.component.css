@@ -3,8 +3,7 @@ header {
     justify-content: space-between;
     align-items: center;
     display: flex;
-    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 1); */
-    height: 11vh;
+    
     color: black;
     background-color: white;
     font-size: large;
