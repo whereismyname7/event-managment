@@ -23,6 +23,15 @@
     "YEAR": "2024",
     "POWERED_BY": "تشغيل بواسطة",
     
-    "LANGUAGE": "En"
+    "LANGUAGE": "En",
+
+    "REMOTE": "عن بعد",
+    "ONSITE": "حضورية",
+
+    "ENTERTAINMENT": "ترفيهية",
+    "EDUCATIONAL": "تعليمية",
+    "PROFESSIONAL": "مهنية",
+    "OTHER": "أخرى"
+    
   }
   

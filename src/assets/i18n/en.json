@@ -23,5 +23,14 @@
     "YEAR": "2024",
     "POWERED_BY": "Powered by",
     
-    "LANGUAGE": "Ar"
+    "LANGUAGE": "Ar",
+    
+    "REMOTE": "Online",
+    "ONSITE": "On-site",
+        
+    "ENTERTAINMENT": "Entertainment",
+    "EDUCATIONAL": "Educational",
+    "PROFESSIONAL": "Professional",
+    "OTHER": "Other"      
+    
 }
