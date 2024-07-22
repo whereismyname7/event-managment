@@ -3,11 +3,11 @@ export var totalEvents = [
     "name": "1",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -16,11 +16,11 @@ export var totalEvents = [
     "name": "2",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -29,11 +29,11 @@ export var totalEvents = [
     "name": "3",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -42,11 +42,11 @@ export var totalEvents = [
     "name": "4",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -55,11 +55,11 @@ export var totalEvents = [
     "name": "5",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -68,11 +68,11 @@ export var totalEvents = [
     "name": "6",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -81,11 +81,11 @@ export var totalEvents = [
     "name": "7",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -94,11 +94,11 @@ export var totalEvents = [
     "name": "8",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -107,11 +107,11 @@ export var totalEvents = [
     "name": "9",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -120,11 +120,11 @@ export var totalEvents = [
     "name": "10",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -133,11 +133,11 @@ export var totalEvents = [
     "name": "11",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -146,11 +146,11 @@ export var totalEvents = [
     "name": "12",
     "series": [
       {
-        "name": "عن بعد",
+        "name": "REMOTE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "حضورية",
+        "name": "ONSITE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -163,11 +163,11 @@ export var totalAttendance = [
     "name": "1",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -176,11 +176,11 @@ export var totalAttendance = [
     "name": "2",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -189,11 +189,11 @@ export var totalAttendance = [
     "name": "3",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -202,11 +202,11 @@ export var totalAttendance = [
     "name": "4",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -215,11 +215,11 @@ export var totalAttendance = [
     "name": "5",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -228,11 +228,11 @@ export var totalAttendance = [
     "name": "6",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -241,11 +241,11 @@ export var totalAttendance = [
     "name": "7",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -254,11 +254,11 @@ export var totalAttendance = [
     "name": "8",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -267,11 +267,11 @@ export var totalAttendance = [
     "name": "9",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -280,11 +280,11 @@ export var totalAttendance = [
     "name": "10",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -293,11 +293,11 @@ export var totalAttendance = [
     "name": "11",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -306,11 +306,11 @@ export var totalAttendance = [
     "name": "12",
     "series": [
       {
-        "name": "ذكر",
+        "name": "MALE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "أنثى",
+        "name": "FEMALE",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -318,14 +318,14 @@ export var totalAttendance = [
 ];
 export var eventTypes = [
   {
-    "name": "حضورية",
+    "name": "ONSITE",
     "value": Math.floor(Math.random() * 50001),
     "extra": {
       "code": "ons"
     }
   },
   {
-    "name": "عن بعد",
+    "name": "REMOTE",
     "value": Math.floor(Math.random() * 50001),
     "extra": {
       "code": "onl"
@@ -334,19 +334,19 @@ export var eventTypes = [
 ];
 export var eventCategories = [
   {
-    "name": "ترفيهية",
+    "name": "ENTERTAINMENT",
     "value": 5000
   },
   {
-    "name": "تعليمية",
+    "name": "EDUCATIONAL",
     "value": 4500
   },
   {
-    "name": "مهنية",
+    "name": "PROFESSIONAL",
     "value": 3000
   },
   {
-    "name": "أخرى",
+    "name": "OTHER",
     "value": 4000
   },
 ]
