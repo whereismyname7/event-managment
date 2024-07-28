@@ -14,11 +14,19 @@ import { ButtonComponent } from './components/layouts/button/button.component';
 import { BreadcrumbsComponent } from './components/layouts/breadcrumbs/breadcrumbs.component';
 import { MessageComponent } from './components/layouts/message/message.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule, MAT_DATE_LOCALE, NativeDateAdapter } from '@angular/material/core';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AddEventComponent } from './pages/add-event/add-event.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,7 +45,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonComponent,
     BreadcrumbsComponent,
     MessageComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddEventComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,10 +62,20 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync(),
+    { provide: MAT_DATE_LOCALE, useValue: 'ar-US' }, // Use your locale
+
   ],
   bootstrap: [AppComponent]
 })

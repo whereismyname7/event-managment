@@ -1,0 +1,64 @@
+<div class="container-fluid justify-content-center p-4">
+    <div class="card shadow">
+        <form class="row row-cols-3 p-4" [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
+
+            <div class=" col my-3">
+                <label for="eventName">Event name</label>
+                <input class="form-control no-outline" type="text" formControlName="eventName">
+            </div>
+            
+            <div class="col my-3">
+                <label for="eventName">Event category</label>
+                <input class="form-control no-outline" type="select" formControlName="eventName">
+            </div>
+            
+            <div class="col my-3">
+                <label for="eventName">Event Type</label>
+                <input class="form-control no-outline" type="text" formControlName="eventName">
+            </div>
+
+            <div class="col my-3">
+                <label for="eventLocation">Event Location</label>
+                <input class="form-control no-outline" type="text" formControlName="eventLocation">
+            </div>
+            
+            <div class="col my-3">
+                <label for="eventLink">Event Link</label>
+                <input class="form-control no-outline" type="text" formControlName="eventLink">
+            </div>
+
+            <div class="col my-3 ">
+                <div class="col">
+                    <label for="eventDate">Event Date</label>
+                    <div class="date-picker-container">
+                        <input matInput [matDatepicker]="picker" formControlName="eventDate" id="eventDate" type="text"
+                            class="form-control no-outline">
+                        <button mat-icon-button type="button" (click)="picker.open()" class="calendar-btn">
+                            <mat-icon>event</mat-icon>
+                        </button>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col my-3">
+                <label for="eventTime">Event time</label>
+                <input class="form-control no-outline" type="time" formControlName="eventTime">
+            </div>
+
+            <div class="col my-3">
+                <label for="eventCapacity">Event capacity</label>
+                <input class="form-control no-outline" type="number" formControlName="eventCapacity">
+            </div>
+
+
+            <div class="col my-3">
+                <app-button [text]="'Add' | translate"></app-button>
+            </div>
+
+
+        </form>
+
+    </div>
+</div>
