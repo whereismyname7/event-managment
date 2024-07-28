@@ -9,7 +9,7 @@
     "ERROR_MESSAGE_2": "كلمة المرور يجب أن تتكون من 8 رموز على الأقل",
 
     "ONLINE": "عن بعد",
-    "ON-SITE": "حضورية",
+    "PHYSICAL": "حضورية",
     "MALE": "ذكر",
     "FEMALE": "أنثى",
     "TOTAL_ATTENDENCE": "إجمالي الحضور",
@@ -25,13 +25,15 @@
     
     "LANGUAGE": "En",
 
-    "REMOTE": "عن بعد",
-    "ONSITE": "حضورية",
-
     "ENTERTAINMENT": "ترفيهية",
     "EDUCATIONAL": "تعليمية",
     "PROFESSIONAL": "مهنية",
-    "OTHER": "أخرى"
+    "OTHER": "أخرى",
+
+    "TOTAL": "الإجمالي",
+    "ADD": "+ إضافة"
+
+    
     
   }
   

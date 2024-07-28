@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="card col-3 mb-5" *ngFor="let event of allEvents">
+            <div class="card-body">
+
+                <div class="row">
+                    <span class="d-flex justify-content-between">
+                        <span>{{ event.name }}</span> 
+                        <span [ngClass]="{
+                            'purple': event.category === 'ENTERTAINMENT',
+                            'orange': event.category === 'PROFESSIONAL',
+                            'green': event.category === 'EDUCATIONAL',
+                            'pink': event.category === 'OTHER'
+                            }">{{ event.category | translate  }}</span>
+                    </span>
+                </div>
+
+                <div class="row mt-3">
+                    <span class="d-flex justify-content-between">
+                        <span><i class="bi bi-people"></i> {{ event.capacity }}</span>
+                        <span><i [ngClass]="{
+                            'bi bi-link-45deg': event.type === 'ONLINE',
+                            'bi bi-geo-alt-fill': event.type === 'PHYSICAL'
+                                }"></i>
+                               {{ event.type | translate }}</span>
+                    </span>
+                </div>
+
+                <div class="row mt-3">
+                    <span class="d-flex justify-content-between">
+                        <span><i class="bi bi-calendar4-week"></i> {{ event.date }}</span>
+                        <span><i class="bi bi-clock"></i> {{ event.time }}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

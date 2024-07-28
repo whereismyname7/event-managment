@@ -31,6 +31,16 @@
     "ENTERTAINMENT": "Entertainment",
     "EDUCATIONAL": "Educational",
     "PROFESSIONAL": "Professional",
-    "OTHER": "Other"      
+    "OTHER": "Other",
+
+    "TOTAL": "total",
+    "ADD": "+ Add",
+
+    "WORK": "work",
+    "PHYSICAL": "physical"
+
+
+
+    
     
 }
