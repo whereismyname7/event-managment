@@ -1,0 +1,11 @@
+tr:hover td {
+    background-color: #FBF4E2;
+    cursor: pointer;
+} 
+th{
+    background: #E0E5E6;
+    border-color: #85979E;
+}
+td, th{
+    color: #264653;
+}

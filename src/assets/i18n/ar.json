@@ -31,7 +31,14 @@
     "ENTERTAINMENT": "ترفيهية",
     "EDUCATIONAL": "تعليمية",
     "PROFESSIONAL": "مهنية",
-    "OTHER": "أخرى"
+    "OTHER": "أخرى",
+
+    "EVENT_NAME": "اسم الفعالية",
+    "EVENT_DATE": "تاريخ الفعالية",
+    "CAPACITY": "السعة الاستيعابية",
+    "EVENT_TYPE": "طبيعة الفعالية",
+    "EVENT_CATEGORY": "تصنيف الفعالية",
+    "EVENT_TIME": "وقت الفعالية"
     
   }
   
