@@ -1,0 +1,24 @@
+<main class="d-flex">
+    <table id="myTable" class="table table-hover-custom m-3">
+        <thead>
+            <tr>
+                <th>{{ 'EVENT_NAME' | translate }}</th>
+                <th>{{ 'EVENT_CATEGORY' | translate }}</th>
+                <th>{{ 'EVENT_TYPE' | translate }} </th>
+                <th>{{ 'CAPACITY' | translate }} </th>
+                <th>{{ 'EVENT_DATE' | translate }} </th>
+                <th>{{ 'EVENT_TIME' | translate }} </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let event of events">
+            <td> {{ event.name }} </td>
+            <td> {{ event.category }} </td>
+            <td> {{ event.type }} </td>
+            <td> {{ event.capacity }} </td>
+            <td> {{ event.date }} </td>
+            <td> {{ event.time }} </td>
+        </tr>
+    </tbody>
+    </table>
+</main>

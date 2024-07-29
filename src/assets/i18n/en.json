@@ -30,11 +30,15 @@
     "PROFESSIONAL": "Professional",
     "OTHER": "Other",
 
+    "EVENT_NAME": "Event's Name",
+    "EVENT_DATE": "Event's Date",
+    "CAPACITY": "Capacity",
+    "EVENT_TYPE": "Event's Type",
+    "EVENT_CATEGORY": "Event's Category",
+    "EVENT_TIME": "Event's Time"
+
     "TOTAL": "total",
     "ADD": "+ Add"
-    
-
-
     
     
 }
