@@ -13,8 +13,8 @@
         <tbody>
         <tr *ngFor="let event of events">
             <td> {{ event.name }} </td>
-            <td> {{ event.category }} </td>
-            <td> {{ event.type }} </td>
+            <td> {{ event.category | translate  }} </td>
+            <td> {{ event.type | translate  }} </td>
             <td> {{ event.capacity }} </td>
             <td> {{ event.date }} </td>
             <td> {{ event.time }} </td>
