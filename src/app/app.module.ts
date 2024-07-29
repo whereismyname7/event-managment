@@ -19,6 +19,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { EventsCardListComponent } from './components/events/events-card-list/events-card-list.component';
+import { EventManagmentComponent } from './pages/event-managment/event-managment.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,7 +39,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonComponent,
     BreadcrumbsComponent,
     MessageComponent,
-    DashboardComponent
+    DashboardComponent,
+    EventsCardListComponent,
+    EventManagmentComponent
   ],
   imports: [
     BrowserModule,

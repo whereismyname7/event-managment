@@ -3,11 +3,11 @@ export var totalEvents = [
     "name": "1",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -16,11 +16,11 @@ export var totalEvents = [
     "name": "2",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -29,11 +29,11 @@ export var totalEvents = [
     "name": "3",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -42,11 +42,11 @@ export var totalEvents = [
     "name": "4",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -55,11 +55,11 @@ export var totalEvents = [
     "name": "5",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -68,11 +68,11 @@ export var totalEvents = [
     "name": "6",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -81,11 +81,11 @@ export var totalEvents = [
     "name": "7",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -94,11 +94,11 @@ export var totalEvents = [
     "name": "8",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -107,11 +107,11 @@ export var totalEvents = [
     "name": "9",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -120,11 +120,11 @@ export var totalEvents = [
     "name": "10",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -133,11 +133,11 @@ export var totalEvents = [
     "name": "11",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -146,11 +146,11 @@ export var totalEvents = [
     "name": "12",
     "series": [
       {
-        "name": "REMOTE",
+        "name": "ONLINE",
         "value": Math.floor(Math.random() * 15001)
       },
       {
-        "name": "ONSITE",
+        "name": "PHYSICAL",
         "value": Math.floor(Math.random() * 15001)
       }
     ]
@@ -318,14 +318,14 @@ export var totalAttendance = [
 ];
 export var eventTypes = [
   {
-    "name": "ONSITE",
+    "name": "PHYSICAL",
     "value": Math.floor(Math.random() * 50001),
     "extra": {
       "code": "ons"
     }
   },
   {
-    "name": "REMOTE",
+    "name": "ONLINE",
     "value": Math.floor(Math.random() * 50001),
     "extra": {
       "code": "onl"

@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="d-flex m-3 justify-content-between">
+        <h3>{{ 'TOTAL' | translate }}({{ eventsCount }})</h3>
+        <app-button [text]="'ADD' | translate" (click)="redirectToAddEvent()"></app-button>
+    </div>
+
+
+<app-events-card-list (eventsCount)="onEventsCountChange($event)"></app-events-card-list>
+</div>
