@@ -15,7 +15,7 @@ import { BreadcrumbsComponent } from './components/layouts/breadcrumbs/breadcrum
 import { MessageComponent } from './components/layouts/message/message.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatNativeDateModule, MAT_DATE_LOCALE, NativeDateAdapter } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE, NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -27,11 +27,24 @@ import { MatInputModule } from '@angular/material/input';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CustomDropdownComponent } from './components/layouts/custom-dropdown/custom-dropdown.component';
+import { CustomDateAdapter } from './utils/CustomDateAdapter';
+import { DatePipe } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'YYYY-MM-DD',
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MessageComponent,
     DashboardComponent,
     AddEventComponent,
+    CustomDropdownComponent,
     
   ],
   imports: [
@@ -69,12 +83,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MatIconModule,
     MatFormFieldModule,
-    
+    MatDatepickerModule,
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
     { provide: MAT_DATE_LOCALE, useValue: 'ar-US' }, // Use your locale
+    { provide: DateAdapter, useClass: CustomDateAdapter },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
+    DatePipe
 
   ],
   bootstrap: [AppComponent]

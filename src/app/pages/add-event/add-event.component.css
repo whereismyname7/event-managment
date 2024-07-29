@@ -100,3 +100,36 @@ mat-form-field {
     top: 40%;
     transform: translateY(-50%);
 }
+
+option{
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 1px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid #1D3557;
+    background-color: white;
+}
+.select{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 0.1em solid #1D3557;
+    background-color: white;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 1px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid #1D3557;
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+    
+}
+.divide-y > * + * {
+    border-top: 1px solid #dee2e6; /* Default Bootstrap border color */
+  }

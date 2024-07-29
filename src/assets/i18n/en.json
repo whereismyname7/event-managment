@@ -10,6 +10,7 @@
 
     "ONLINE": "Online",
     "ON-SITE": "On-site",
+    "PHYSICAL": "physical",
     "MALE": "Male",
     "FEMALE": "Female",
     "TOTAL_ATTENDENCE": "Total attendance",
