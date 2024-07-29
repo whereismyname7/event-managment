@@ -4,20 +4,20 @@
         <nav class="d-flex align-items-center">
             <img src="../../../../assets/images/logo.svg" class="mx-2 header-logo">
             <div class="mx-3 link">
-                <a>
+                <a [routerLink]="['/dashboard']">
                     {{ 'HOMEPAGE' | translate }}
                 </a>
             </div>
             <div class="mx-2 link">
-                <a>
+                <a [routerLink]="['/events']">
                     {{ 'EVENT_MANAGMENT' | translate }}
-                </a>
+                  </a>                  
             </div>
         </nav>
-        <div class="mx-2 link" (click)="switchLang()">
+        <a class="mx-2 link" (click)="switchLang()">
             {{ 'LANGUAGE' | translate }} 
             <i class="bi bi-globe mx-1"></i>
-        </div>
+        </a>
     </div>
     <div class="vr text-secondary "></div>
     <div class="align-items-center col-2 header-subcontent mx-2  container-fluid">
