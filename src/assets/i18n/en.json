@@ -35,10 +35,12 @@
     "CAPACITY": "Capacity",
     "EVENT_TYPE": "Event's Type",
     "EVENT_CATEGORY": "Event's Category",
-    "EVENT_TIME": "Event's Time"
+    "EVENT_TIME": "Event's Time",
 
     "TOTAL": "total",
-    "ADD": "+ Add"
+    "ADD": "+ Add",
     
+    "TITLE": "Events List"
+
     
 }

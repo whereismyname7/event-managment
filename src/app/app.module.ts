@@ -20,9 +20,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { TableComponent } from './components/layouts/table/table.component';
+import { TableComponent } from './components/events/table/table.component';
 import { EventsCardListComponent } from './components/events/events-card-list/events-card-list.component';
 import { EventManagmentComponent } from './pages/event-managment/event-managment.component';
+import { SwitchComponent } from './components/layouts/switch/switch.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,9 +44,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     BreadcrumbsComponent,
     MessageComponent,
     DashboardComponent,
-    TableComponent
+    TableComponent,
     EventsCardListComponent,
-    EventManagmentComponent
+    EventManagmentComponent,
+    SwitchComponent
 
   ],
   imports: [
