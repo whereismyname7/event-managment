@@ -6,7 +6,7 @@
     </div>
   
     <div class="dropdown-content" [class.show]="isOpen">
-      <a href="#" *ngFor="let option of options; let index = index" (click)="selectOption($event, option, index)" [class.border-top]="index !== 0">{{ option }}</a>
+      <a href="#" *ngFor="let option of options; let index = index" (click)="selectOption($event, option, index)" [class.border-top]="index !== 0" [class.margin-sides]="true">{{ option }}</a>
     </div>
   </div>
   

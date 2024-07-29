@@ -3,37 +3,38 @@
         <form class="row row-cols-3 p-4" [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
 
             <div class=" col my-3">
-                <label for="eventName">Event name</label>
+                <label for="eventName">{{ 'EVENT_NAME' | translate}}</label>
                 <input class="form-control no-outline" type="text" formControlName="eventName">
             </div>
-            
+
             <div class="col my-3">
-                <label for="eventCategories">Event category</label>
-                <app-custom-dropdown 
+                <label for="eventCategories">{{'EVENT_CATEGORY' | translate}}</label>
+                <app-custom-dropdown
                     [options]="['ENTERTAINMENT' | translate, 'PROFESSIONAL' | translate, 'EDUCATIONAL' | translate, 'OTHER' | translate]"
                     (optionSelected)="handleCategorySelected($event)" formControlName="eventCategories">
                 </app-custom-dropdown>
-              </div>
-
-            <div class="col my-3">
-                <label for="eventType">Event Type</label>
-                <app-custom-dropdown [options]="['PHYSICAL'|translate,'ONLINE'|translate,]"
-                    (optionSelected)="handleTypeSelected($event)" formControlName="eventType" ></app-custom-dropdown>
             </div>
 
-            <div class="col my-3" *ngIf="(selectedType!==('ONLINE'| translate: {value: 'en'}) && selectedType!=='') ">
-                <label for="eventLocation">Event Location</label>
+            <div class="col my-3">
+                <label for="eventType">{{'EVENT_TYPE' | translate}}</label>
+                <app-custom-dropdown [options]="['PHYSICAL'|translate,'ONLINE'|translate,]"
+                    (optionSelected)="handleTypeSelected($event)" formControlName="eventType"></app-custom-dropdown>
+            </div>
+
+            <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('ONLINE') && selectedType!=='') ">
+                <label for="eventLocation">{{'EVENT_LOCATION' | translate}}</label>
                 <input class="form-control no-outline" type="text" formControlName="eventLocation">
             </div>
 
-            <div class="col my-3" *ngIf="(selectedType!==('PHYSICAL' | translate: {value: 'en'} )  && selectedType!=='')">
-                <label for="eventLink">Event Link</label>
+            <div class="col my-3"
+                *ngIf="(types[selectedTypeNum]!==('PHYSICAL' )  && selectedType!=='')">
+                <label for="eventLink">{{'EVENT_LINK' | translate}}</label>
                 <input class="form-control no-outline" type="text" formControlName="eventLink">
             </div>
 
             <div class="col my-3 ">
                 <div class="col">
-                    <label for="eventDate">Event Date</label>
+                    <label for="eventDate">{{'EVENT_DATE' | translate}}</label>
                     <div class="date-picker-container">
                         <input matInput [matDatepicker]="picker" formControlName="eventDate" id="eventDate" type="text"
                             class="form-control no-outline">
@@ -46,12 +47,12 @@
             </div>
 
             <div class="col my-3">
-                <label for="eventTime">Event time</label>
+                <label for="eventTime">{{'EVENT_TIME' | translate}}</label>
                 <input class="form-control no-outline" type="time" formControlName="eventTime">
             </div>
 
             <div class="col my-3">
-                <label for="eventCapacity">Event capacity</label>
+                <label for="eventCapacity">{{'EVENT_CAPACITY'| translate}}</label>
                 <input class="form-control no-outline" type="number" formControlName="eventCapacity">
             </div>
 

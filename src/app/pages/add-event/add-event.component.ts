@@ -16,7 +16,7 @@ export class AddEventComponent implements OnInit {
   types = ['PHYSICAL', 'ONLINE'];
   selectedCategory: String = '';
   selectedType: String = '';
-  selectedTypeEn: String = '';
+  selectedTypeNum = -1;
   private readonly _adapter = inject<DateAdapter<unknown, unknown>>(DateAdapter);
   private readonly _intl = inject(MatDatepickerIntl);
   private readonly _locale = signal(inject<unknown>(MAT_DATE_LOCALE));
@@ -83,6 +83,7 @@ export class AddEventComponent implements OnInit {
 
   handleTypeSelected($event: [string, number]) {
     const currentLang = this.translateService.currentLang;
+    this.selectedTypeNum = $event[1];
     this.translateService.use('en');
     this.selectedType = this.translateService.instant(this.types[$event[1]].toUpperCase()) ?? this.selectedType.toUpperCase();
     this.translateService.use(currentLang);
