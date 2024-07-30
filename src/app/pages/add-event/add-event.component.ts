@@ -1,9 +1,8 @@
-import { Component, computed, Inject, inject, OnInit, signal } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerIntl } from '@angular/material/datepicker';
 import { TranslateService } from '@ngx-translate/core';
-import { eventCategories, eventTypes } from '../../components/charts/dummyData';
 import { DatePipe } from '@angular/common';
 import { conditionalRequiredValidator, datePatternValidator } from '../../utils/custom-validator';
 
@@ -14,9 +13,9 @@ import { conditionalRequiredValidator, datePatternValidator } from '../../utils/
 })
 export class AddEventComponent implements OnInit {
   types = ['PHYSICAL', 'ONLINE'];
-  selectedCategory: String = '';
-  selectedType: String = '';
-  selectedTypeNum = -1;
+  selectedCategory: string = '';
+  selectedTypeNum: number = -1;
+  selectedType: string = '';
   private readonly _adapter = inject<DateAdapter<unknown, unknown>>(DateAdapter);
   private readonly _intl = inject(MatDatepickerIntl);
   private readonly _locale = signal(inject<unknown>(MAT_DATE_LOCALE));
@@ -38,34 +37,30 @@ export class AddEventComponent implements OnInit {
   submitted = false;
   addEventForm: FormGroup;
 
-  constructor(private fb: FormBuilder, public translateService: TranslateService, private datePipe: DatePipe) {
+  constructor(
+    private fb: FormBuilder,
+    public translateService: TranslateService,
+    private datePipe: DatePipe
+  ) {
     translateService.currentLang === 'ar' ? this.arabic() : this.english();
 
     this.addEventForm = this.fb.group({
-      eventName: new FormControl('', [
-        Validators.required
-      ]),
-      eventCapacity: new FormControl('', [
-        Validators.min(5), Validators.required
-      ]),
-      eventLocation: new FormControl('', [
-        conditionalRequiredValidator('eventType', (value) => value.toUpperCase() === this.types[0])
-      ]),
-      eventLink: new FormControl('', [
-
-        conditionalRequiredValidator('eventType', (value) => value.toUpperCase() === this.types[1]),
-
-        Validators.pattern('https?://.+')]),
+      eventName: new FormControl('', [Validators.required]),
+      eventCategories: new FormControl('', [Validators.required]),
+      eventType: new FormControl('', [Validators.required]),
+      eventLocation: new FormControl(''),
+      eventLink: new FormControl(''),
       eventDate: new FormControl('', [
         datePatternValidator(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/), Validators.required
       ]),
       eventTime: new FormControl(''),
-      eventCategories: new FormControl('', [Validators.required]),
-      eventType: new FormControl('', [Validators.required]),
+      eventCapacity: new FormControl('', [Validators.min(5), Validators.required]),
     });
 
+    // Handle dynamic validators
     this.addEventForm.get('eventType')?.valueChanges.subscribe(value => {
-      this.addEventForm.get('eventLocation')?.updateValueAndValidity();
+      // this.selectedTypeNum = this.types.indexOf(value);
+      this.updateValidators();
     });
   }
 
@@ -73,26 +68,54 @@ export class AddEventComponent implements OnInit {
     this.translateService.currentLang === 'ar' ? this.arabic() : this.english();
     this.translateService.onLangChange.subscribe((event) => {
       event.lang === 'ar' ? this.arabic() : this.english();
+      this.updateValidators();  // Update validators when language changes
     });
   }
 
-  handleCategorySelected($event: [string, number]) {
+  private async updateValidators(): Promise<void> {
+    const eventLocationControl = this.addEventForm.get('eventLocation');
+    const eventLinkControl = this.addEventForm.get('eventLink');
+
+    const translatedOnline = await this.translateService.get('ONLINE').toPromise();
+    const translatedPhysical = await this.translateService.get('PHYSICAL').toPromise();
+
+    if (eventLocationControl) {
+      eventLocationControl.setValidators([
+        conditionalRequiredValidator('eventType', () => {
+          const eventTypeValue = this.addEventForm.get('eventType')?.value;
+          return eventTypeValue === this.types[0] || eventTypeValue === translatedPhysical;
+        })
+      ]);
+    }
+
+    if (eventLinkControl) {
+      eventLinkControl.setValidators([
+        conditionalRequiredValidator('eventType', () => {
+          const eventTypeValue = this.addEventForm.get('eventType')?.value;
+          return eventTypeValue === this.types[1] || eventTypeValue === translatedOnline;
+        }),
+        Validators.pattern('https?://.+')
+      ]);
+    }
+
+    // Update the validation state
+    eventLocationControl?.updateValueAndValidity();
+    eventLinkControl?.updateValueAndValidity();
+  }
+
+  handleCategorySelected($event: [string, number]): void {
     this.selectedCategory = $event[0];
     console.log('Option selected:', $event[0]);
   }
 
-  handleTypeSelected($event: [string, number]) {
-    const currentLang = this.translateService.currentLang;
+  handleTypeSelected($event: [string, number]): void {
     this.selectedTypeNum = $event[1];
-    this.translateService.use('en');
-    this.selectedType = this.translateService.instant(this.types[$event[1]].toUpperCase()) ?? this.selectedType.toUpperCase();
-    this.translateService.use(currentLang);
-    console.log('Option selected:', this.selectedType.toUpperCase());
+    this.addEventForm.get('eventType')?.setValue($event[0]);
+    console.log('Option selected:', this.selectedTypeNum);
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
-    const formValue = this.addEventForm;
     const eventDateControl = this.addEventForm.get('eventDate');
     if (eventDateControl) {
       const eventDateValue = eventDateControl.value;

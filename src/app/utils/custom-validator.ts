@@ -1,23 +1,24 @@
 // utils/custom-validator.ts
-import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidatorFn, ValidationErrors, FormGroup } from '@angular/forms';
+
 
 export function conditionalRequiredValidator(
   dependentControlName: string,
-  conditionFn: (value: any) => boolean
+  condition: (value: any) => boolean
 ): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    const form = control?.parent;
-    if (!form) {
-      return null;
+    const formGroup = control.parent as FormGroup;
+    if (!formGroup) return null; // Form group not found
+
+    const dependentControl = formGroup.get(dependentControlName);
+    if (!dependentControl) return null; // Dependent control not found
+
+    const conditionMet = condition(dependentControl.value);
+
+    if (conditionMet && !control.value) {
+      return { required: true };
     }
 
-    const dependentControl = form.get(dependentControlName);
-    if (dependentControl) {
-      const isConditionMet = conditionFn(dependentControl.value);
-      if (isConditionMet && !control.value) {
-        return { required: true };
-      }
-    }
     return null;
   };
 }

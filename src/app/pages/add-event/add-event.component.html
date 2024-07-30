@@ -21,13 +21,12 @@
                     (optionSelected)="handleTypeSelected($event)" formControlName="eventType"></app-custom-dropdown>
             </div>
 
-            <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('ONLINE') && selectedType!=='') ">
+            <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('ONLINE') && selectedTypeNum!=-1) ">
                 <label for="eventLocation">{{'EVENT_LOCATION' | translate}}</label>
                 <input class="form-control no-outline" type="text" formControlName="eventLocation">
             </div>
 
-            <div class="col my-3"
-                *ngIf="(types[selectedTypeNum]!==('PHYSICAL' )  && selectedType!=='')">
+            <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('PHYSICAL' )  && selectedTypeNum!= -1)">
                 <label for="eventLink">{{'EVENT_LINK' | translate}}</label>
                 <input class="form-control no-outline" type="text" formControlName="eventLink">
             </div>
