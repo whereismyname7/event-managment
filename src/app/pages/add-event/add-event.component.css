@@ -3,7 +3,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: white;
     color: black;
-    min-height: 70vh;
+
+    font-family: 'Neo Sans Arabic';
 }
 
 .container-fluid {
@@ -83,11 +84,11 @@ mat-form-field {
     border: none;
     transition: ease;
     position: absolute;
-    
+
 }
 
 ::ng-deep html[lang="ar"] .date-picker-container button {
-    
+
     position: absolute;
     right: 90%;
     top: 40%;
@@ -101,7 +102,7 @@ mat-form-field {
     transform: translateY(-50%);
 }
 
-option{
+option {
     color: black;
     font-size: large;
     font-weight: bold;
@@ -112,7 +113,8 @@ option{
     border: 1px solid #1D3557;
     background-color: white;
 }
-.select{
+
+.select {
     border: 0;
     border-radius: 0;
     border-bottom: 0.1em solid #1D3557;
@@ -128,8 +130,28 @@ option{
     background-color: white;
     display: inline-block;
     cursor: pointer;
-    
+
 }
-.divide-y > * + * {
-    border-top: 1px solid #dee2e6; /* Default Bootstrap border color */
-  }
+
+.divide-y>*+* {
+    border-top: 1px solid #dee2e6;
+    /* Default Bootstrap border color */
+}
+
+#errormsg {
+    color: #9D1C1C;
+    background: #F3E3E3;
+    border: 0.1em solid #9D1C1C;
+    border-radius: 0.25em;
+}
+
+.form-btn-container {
+    color: white;
+}
+
+/* ::ng-deep html[lang="ar"] .form-btn-container{
+   
+}
+::ng-deep html[lang="en"] .form-btn-container{
+   
+} */

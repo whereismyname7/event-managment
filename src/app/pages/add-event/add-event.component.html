@@ -1,70 +1,106 @@
 <div class="container-fluid justify-content-center p-4">
     <div class="card shadow">
-        <form class="row row-cols-3 p-4" [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
-
-            <div class=" col my-3">
-                <label for="eventName" [ngClass]="{ 'invalid': isEventNameInvalid, 'valid': !isEventNameInvalid }">{{ 'EVENT_NAME' | translate}}</label>
-                <input class="form-control no-outline" type="text" formControlName="eventName" [ngClass]="{ 'invalid': isEventNameInvalid, 'valid': !isEventNameInvalid }">
+        <div class="d-flex justify-content-start align-items-center p-1 m-4 " id="errormsg"
+            *ngIf="submitted && (isEventNameInvalid || isEventCategoriesInvalid||isEventTypeInvalid||isEventLocationInvalid||isEventLinkInvalid||isEventDateInvalid||isEventTimeInvalid||isEventCapacityInvalid)">
+            <i class="bi bi-exclamation-circle-fill mx-1"></i>
+            <div class="m-1">
+                {{ 'ERROR_FORM_INCOMPLETE' | translate }}
             </div>
+        </div>
 
-            <div class="col my-3">
-                <label for="eventCategories" [ngClass]="{ 'invalid': isEventCategoriesInvalid, 'valid': !isEventCategoriesInvalid }">{{'EVENT_CATEGORY' | translate}}</label>
-                <app-custom-dropdown
-                    [options]="['ENTERTAINMENT' | translate, 'PROFESSIONAL' | translate, 'EDUCATIONAL' | translate, 'OTHER' | translate]"
-                    [invalid]="isEventCategoriesInvalid" 
-                    (optionSelected)="handleCategorySelected($event)" formControlName="eventCategories">
-                </app-custom-dropdown>
-            </div>
+        <form class="d-flex flex-column" [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
 
-            <div class="col my-3">
-                <label for="eventType" [ngClass]="{ 'invalid': isEventTypeInvalid, 'valid': !isEventTypeInvalid }">{{'EVENT_TYPE' | translate}}</label>
-                <app-custom-dropdown [options]="['PHYSICAL'|translate,'ONLINE'|translate,]"
-                [invalid]="isEventTypeInvalid"
-                    (optionSelected)="handleTypeSelected($event)" formControlName="eventType"></app-custom-dropdown>
-            </div>
+            <div class="row row-cols-3 p-4 mb-5">
+                <div class=" col my-3">
 
-            <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('ONLINE') && selectedTypeNum!=-1) ">
-                <label for="eventLocation" [ngClass]="{ 'invalid': isEventLocationInvalid, 'valid': !isEventLocationInvalid }">{{'EVENT_LOCATION' | translate}}</label>
-                <input class="form-control no-outline" type="text" formControlName="eventLocation">
-            </div>
+                    <label for="eventName"
+                        [ngClass]="{ 'invalid': isEventNameInvalid, 'valid': !isEventNameInvalid }">{{
+                        'EVENT_NAME' | translate}}</label> <span class="invalid">*</span>
+                    <input class="form-control no-outline" type="text" formControlName="eventName"
+                        [ngClass]="{ 'invalid': isEventNameInvalid, 'valid': !isEventNameInvalid }">
+                </div>
 
-            <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('PHYSICAL' )  && selectedTypeNum!= -1)">
-                <label for="eventLink" [ngClass]="{ 'invalid': isEventLinkInvalid, 'valid': !isEventLinkInvalid }">{{'EVENT_LINK' | translate}}</label>
-                <input class="form-control no-outline" type="text" formControlName="eventLink">
-            </div>
+                <div class="col my-3">
+                    <label for="eventCategories"
+                        [ngClass]="{ 'invalid': isEventCategoriesInvalid, 'valid': !isEventCategoriesInvalid }">{{'EVENT_CATEGORY'
+                        | translate}}</label> <span class="invalid">*</span>
+                    <app-custom-dropdown
+                        [options]="['ENTERTAINMENT' | translate, 'PROFESSIONAL' | translate, 'EDUCATIONAL' | translate, 'OTHER' | translate]"
+                        [invalid]="isEventCategoriesInvalid" (optionSelected)="handleCategorySelected($event)"
+                        formControlName="eventCategories">
+                    </app-custom-dropdown>
+                </div>
 
-            <div class="col my-3 ">
-                <div class="col">
-                    <label for="eventDate" [ngClass]="{ 'invalid': isEventDateInvalid, 'valid': !isEventDateInvalid }">{{'EVENT_DATE' | translate}}</label>
-                    <div class="date-picker-container">
-                        <input matInput [matDatepicker]="picker" formControlName="eventDate" id="eventDate" type="text"
-                            class="form-control no-outline" [ngClass]="{ 'invalid': isEventDateInvalid, 'valid': !isEventDateInvalid }">
-                        <button mat-icon-button type="button" (click)="picker.open()" class="calendar-btn">
-                            <mat-icon>event</mat-icon>
-                        </button>
-                        <mat-datepicker #picker></mat-datepicker>
+                <div class="col my-3">
+                    <label for="eventType"
+                        [ngClass]="{ 'invalid': isEventTypeInvalid, 'valid': !isEventTypeInvalid }">{{'EVENT_TYPE' |
+                        translate}}</label> <span class="invalid">*</span>
+                    <app-custom-dropdown [options]="['PHYSICAL'|translate,'ONLINE'|translate,]"
+                        [invalid]="isEventTypeInvalid" (optionSelected)="handleTypeSelected($event)"
+                        formControlName="eventType"></app-custom-dropdown>
+                </div>
+
+                <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('ONLINE') ) ">
+                    <label for="eventLocation"
+                        [ngClass]="{ 'invalid': isEventLocationInvalid, 'valid': !isEventLocationInvalid }">{{'EVENT_LOCATION'
+                        | translate}}</label> <span class="invalid">*</span>
+                    <input class="form-control no-outline" type="text" formControlName="eventLocation">
+                </div>
+
+                <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('PHYSICAL' )  && selectedTypeNum!= -1)">
+                    <label for="eventLink"
+                        [ngClass]="{ 'invalid': isEventLinkInvalid, 'valid': !isEventLinkInvalid }">{{'EVENT_LINK' |
+                        translate}}</label> <span class="invalid">*</span>
+                    <input class="form-control no-outline" type="text" formControlName="eventLink">
+                </div>
+
+                <div class="col my-3 ">
+                    <div class="col">
+                        <label for="eventDate"
+                            [ngClass]="{ 'invalid': isEventDateInvalid, 'valid': !isEventDateInvalid }">{{'EVENT_DATE' |
+                            translate}}</label> <span class="invalid">*</span>
+                        <div class="date-picker-container">
+                            <input matInput [matDatepicker]="picker" formControlName="eventDate" id="eventDate"
+                                type="text" class="form-control no-outline"
+                                [ngClass]="{ 'invalid': isEventDateInvalid, 'valid': !isEventDateInvalid }">
+                            <button mat-icon-button type="button" (click)="picker.open()" class="calendar-btn">
+                                <mat-icon>event</mat-icon>
+                            </button>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </div>
                     </div>
                 </div>
+
+                <div class="col my-3">
+                    <label for="eventTime"
+                        [ngClass]="{ 'invalid': isEventTimeInvalid, 'valid': !isEventTimeInvalid }">{{'EVENT_TIME' |
+                        translate}}</label> <span class="invalid">*</span>
+
+
+                    <input class="form-control no-outline" formControlName="eventTime" placeholder="hh:mm"
+                        aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" readonly
+                        [ngClass]="{ 'invalid': isEventTimeInvalid, 'valid': !isEventTimeInvalid }">
+                    <ngx-material-timepicker #fullTime [timepickerClass]="'time-picker'"></ngx-material-timepicker>
+
+                </div>
+
+                <div class="col my-3">
+                    <label for="eventCapacity"
+                        [ngClass]="{ 'invalid': isEventCapacityInvalid, 'valid': !isEventCapacityInvalid }">{{'EVENT_CAPACITY'|
+                        translate}}</label> <span class="invalid">*</span>
+                    <input class="form-control no-outline" type="number" formControlName="eventCapacity"
+                        [ngClass]="{ 'invalid': isEventCapacityInvalid, 'valid': !isEventCapacityInvalid }">
+                </div>
             </div>
+            <!-- <div style="min-height: 30vh;"></div> -->
+            <div class="col mt-5 pt-5 m-2 d-flex form-btn-container align-self-end">
 
-            <div class="col my-3">
-                <label for="eventTime" [ngClass]="{ 'invalid': isEventTimeInvalid, 'valid': !isEventTimeInvalid }">{{'EVENT_TIME' | translate}}</label>
-
-
-                <input class="form-control no-outline" formControlName="eventTime" placeholder="hh:mm"
-                    aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" readonly [ngClass]="{ 'invalid': isEventTimeInvalid, 'valid': !isEventTimeInvalid }">
-                <ngx-material-timepicker #fullTime [timepickerClass]="'time-picker'"></ngx-material-timepicker>
-
-            </div>
-
-            <div class="col my-3">
-                <label for="eventCapacity" [ngClass]="{ 'invalid': isEventCapacityInvalid, 'valid': !isEventCapacityInvalid }">{{'EVENT_CAPACITY'| translate}}</label>
-                <input class="form-control no-outline" type="number" formControlName="eventCapacity" [ngClass]="{ 'invalid': isEventCapacityInvalid, 'valid': !isEventCapacityInvalid }">
-            </div>
-
-
-            <div class="col my-3">
-                <app-button [text]="'Add' | translate"></app-button>
+                <div class="mx-1 d-flex">
+                    <app-button [text]="'CANCEL' | translate"></app-button>
+                </div>
+                <div class="mx-1 d-flex">
+                    <app-button [text]="'ADD' | translate"></app-button>
+                </div>
             </div>
 
 

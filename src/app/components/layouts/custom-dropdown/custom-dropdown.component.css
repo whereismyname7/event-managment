@@ -106,14 +106,14 @@
 ::ng-deep html[lang="ar"] .arrow-icon-container i {
 
   position: absolute;
-  right: 95%;
+  right: 93%;
   top: 40%;
   transform: translateY(-50%);
 }
 
 ::ng-deep html[lang="en"] .arrow-icon-container i {
   position: absolute;
-  left: 95%;
+  left: 93%;
   top: 40%;
   transform: translateY(-50%);
 }
@@ -132,6 +132,7 @@
 .arrow-icon {
   position: relative;
 }
+
 .invalid {
   border-color: #9D1C1C;
   color: #9D1C1C;
