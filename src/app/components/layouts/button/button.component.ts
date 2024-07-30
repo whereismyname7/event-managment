@@ -13,6 +13,7 @@ import { Component, Input } from '@angular/core';
     .fill{
     background: #264653;
     color: #FFFFFF;
+    border: 2px solid #264653;
     }
     `
   ]
