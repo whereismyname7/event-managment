@@ -30,6 +30,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { CustomDropdownComponent } from './components/layouts/custom-dropdown/custom-dropdown.component';
 import { CustomDateAdapter } from './utils/CustomDateAdapter';
 import { DatePipe } from '@angular/common';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -84,6 +85,8 @@ export const MY_DATE_FORMATS = {
     MatIconModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    NgxMaterialTimepickerModule.setOpts('en-US',''),
+    NgxMaterialTimepickerModule.setOpts('ar-AE', 'arab'),
   ],
   providers: [
     provideClientHydration(),

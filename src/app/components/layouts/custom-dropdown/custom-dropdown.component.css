@@ -96,7 +96,7 @@
 
 
 .arrow-icon-container i {
-  background-color: white;
+  background-color: transparent;
   border: none;
   transition: ease;
   position: absolute;
@@ -131,4 +131,13 @@
 
 .arrow-icon {
   position: relative;
+}
+.invalid {
+  border-color: #9D1C1C;
+  color: #9D1C1C;
+}
+
+.valid {
+  color: #1D3557;
+  border-color: #1D3557;
 }

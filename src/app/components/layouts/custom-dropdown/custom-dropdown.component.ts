@@ -1,5 +1,5 @@
 // custom-dropdown.component.ts
-import { Component, EventEmitter, HostListener, Input, OnInit, Output, forwardRef } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output, forwardRef, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -18,6 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class CustomDropdownComponent implements OnInit, ControlValueAccessor {
   
   @Input() options: string[] = [];
+  @Input() invalid: boolean = true;
   @Output() optionSelected = new EventEmitter<[string,number]>();
   selectedValue: string = '';
   isOpen = false;
