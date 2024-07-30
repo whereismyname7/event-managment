@@ -20,8 +20,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() text: any;
-  @Input() customClasses: string | string[] = '';
-  @Input() buttonType: string = 'button';
+  @Input() customClasses: string | string[] = 'fill';
+  @Input() buttonType: string = 'submit';
 
 
 
