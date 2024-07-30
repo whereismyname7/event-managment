@@ -1,6 +1,7 @@
 export const AppRoutes = {
     LOGIN: '',
     DASHBOARD: 'dashboard',
-    EVENTS: 'events'
+    EVENTS: 'events',
+    EVENT: 'event'
   };
   

@@ -24,6 +24,7 @@ import { TableComponent } from './components/events/table/table.component';
 import { EventsCardListComponent } from './components/events/events-card-list/events-card-list.component';
 import { EventManagmentComponent } from './pages/event-managment/event-managment.component';
 import { SwitchComponent } from './components/layouts/switch/switch.component';
+import { EventDetailsComponent } from './pages/event-details/event-details.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -47,7 +48,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableComponent,
     EventsCardListComponent,
     EventManagmentComponent,
-    SwitchComponent
+    SwitchComponent,
+    EventDetailsComponent
 
   ],
   imports: [

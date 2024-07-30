@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let event of events">
+        <tr *ngFor="let event of events" (click)="viewEventDetails(event)">
             <td> {{ event.name }} </td>
             <td> {{ event.category | translate  }} </td>
             <td> {{ event.type | translate  }} </td>

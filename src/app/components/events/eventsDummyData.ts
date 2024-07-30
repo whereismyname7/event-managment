@@ -6,7 +6,8 @@ export var events = [
       type: "PHYSICAL",
       capacity: 150,
       date: "2024-08-15",
-      time: "19:00"
+      time: "19:00",
+      where: "Central Park"
     },
     {
       id: 2,
@@ -15,7 +16,8 @@ export var events = [
       type: "ONLINE",
       capacity: 50,
       date: "2024-09-10",
-      time: "14:00"
+      time: "14:00",
+      where: "https://example.com/marketing-workshop"
     },
     {
       id: 3,
@@ -24,7 +26,8 @@ export var events = [
       type: "PHYSICAL",
       capacity: 200,
       date: "2024-10-05",
-      time: "18:00"
+      time: "18:00",
+      where: "High School Gymnasium"
     },
     {
       id: 4,
@@ -33,7 +36,8 @@ export var events = [
       type: "ONLINE",
       capacity: 100,
       date: "2024-11-12",
-      time: "09:00"
+      time: "09:00",
+      where: "https://example.com/coding-bootcamp"
     },
     {
       id: 5,
@@ -42,7 +46,8 @@ export var events = [
       type: "PHYSICAL",
       capacity: 80,
       date: "2024-08-20",
-      time: "17:00"
+      time: "17:00",
+      where: "Tech Hub Auditorium"
     },
     {
       id: 6,
@@ -51,7 +56,8 @@ export var events = [
       type: "PHYSICAL",
       capacity: 30,
       date: "2024-07-30",
-      time: "10:00"
+      time: "10:00",
+      where: "Community Art Center"
     },
     {
       id: 7,
@@ -60,7 +66,8 @@ export var events = [
       type: "ONLINE",
       capacity: 200,
       date: "2024-12-01",
-      time: "15:00"
+      time: "15:00",
+      where: "https://example.com/financial-planning"
     }
   ];
   

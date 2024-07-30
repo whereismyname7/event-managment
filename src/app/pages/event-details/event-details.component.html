@@ -1,0 +1,57 @@
+<div class="container justify-content-center p-4">
+
+    <div class="mt-2 mb-3">
+        <app-breadcrumbs [level_1]="'TITLE' | translate" [link]="eventListLink"
+        [level_2]="'EVENT' | translate" [number]="event.id"></app-breadcrumbs>
+    </div>
+
+    <div class="card shadow">
+        <div class="row row-cols-3 p-4">
+
+            <div class="col my-3">
+                <label for="eventName">{{ 'EVENT_NAME' | translate}}</label>
+                <p>{{ event.name }}</p>
+            </div>
+
+            <div class="col my-3">
+                <label for="eventCategories">{{'EVENT_CATEGORY' | translate}}</label>
+                <p>{{ event.category | translate }}</p>
+            </div>
+
+            <div class="col my-3">
+                <label for="eventType">{{'EVENT_TYPE' | translate}}</label>
+                <p>{{ event.type | translate }}</p>
+            </div>
+
+            <div class="col my-3" *ngIf="(event.type === 'PHYSICAL')">
+                <label for="eventLocation">{{'EVENT_LOCATION' | translate}}</label>
+                <p>{{event.where}}</p>
+            </div>
+
+            <div class="col my-3" *ngIf="event.type === 'ONLINE'">
+                <label for="eventLink">{{'EVENT_LINK' | translate}}</label>
+                <p>{{event.where}}</p>
+            </div>
+
+            <div class="col my-3 ">
+                <label for="eventDate">{{'EVENT_DATE' | translate}}</label>
+                <p>{{ event.date }}</p>
+            </div>
+
+            <div class="col my-3">
+                <label for="eventTime">{{'EVENT_TIME' | translate}}</label>
+                <p>{{ event.time }}</p>
+            </div>
+
+            <div class="col my-3">
+                <label for="eventCapacity">{{'EVENT_CAPACITY'| translate}}</label>
+                <p>{{ event.capacity }}</p>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div>

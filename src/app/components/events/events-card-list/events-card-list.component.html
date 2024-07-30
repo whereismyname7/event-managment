@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row mb-5 gap-5">
-        <div class="card col-3" *ngFor="let event of allEvents">
+        <div class="card col-3" *ngFor="let event of allEvents" (click)="viewEventDetails(event)">
             <div class="card-body">
 
                 <div class="row">
                     <span class="d-flex justify-content-between">
                         <span>{{ event.name }}</span> 
-                        <span [ngClass]="{
+                        <span class="px-2" [ngClass]="{
                             'purple': event.category === 'ENTERTAINMENT',
                             'orange': event.category === 'PROFESSIONAL',
                             'green': event.category === 'EDUCATIONAL',
