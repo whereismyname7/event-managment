@@ -44,14 +44,16 @@
                     <label for="eventLocation"
                         [ngClass]="{ 'invalid': isEventLocationInvalid, 'valid': !isEventLocationInvalid }">{{'EVENT_LOCATION'
                         | translate}}</label> <span class="invalid">*</span>
-                    <input class="form-control no-outline" type="text" formControlName="eventLocation">
+                    <input class="form-control no-outline" type="text" formControlName="eventLocation"
+                    [ngClass]="{ 'invalid': isEventLocationInvalid, 'valid': !isEventLocationInvalid }">
                 </div>
 
                 <div class="col my-3" *ngIf="(types[selectedTypeNum]!==('PHYSICAL' )  && selectedTypeNum!= -1)">
                     <label for="eventLink"
                         [ngClass]="{ 'invalid': isEventLinkInvalid, 'valid': !isEventLinkInvalid }">{{'EVENT_LINK' |
                         translate}}</label> <span class="invalid">*</span>
-                    <input class="form-control no-outline" type="text" formControlName="eventLink">
+                    <input class="form-control no-outline" type="text" formControlName="eventLink"
+                    [ngClass]="{ 'invalid': isEventLinkInvalid, 'valid': !isEventLinkInvalid }">
                 </div>
 
                 <div class="col my-3 ">
@@ -62,7 +64,8 @@
                         <div class="date-picker-container">
                             <input matInput [matDatepicker]="picker" formControlName="eventDate" id="eventDate"
                                 type="text" class="form-control no-outline"
-                                [ngClass]="{ 'invalid': isEventDateInvalid, 'valid': !isEventDateInvalid }">
+                                [ngClass]="{ 'invalid': isEventDateInvalid, 'valid': !isEventDateInvalid }"
+                                readonly>
                             <button mat-icon-button type="button" (click)="picker.open()" class="calendar-btn">
                                 <mat-icon>event</mat-icon>
                             </button>
@@ -96,10 +99,10 @@
             <div class="col mt-5 pt-5 m-2 d-flex form-btn-container align-self-end">
 
                 <div class="mx-1 d-flex">
-                    <app-button [text]="'CANCEL' | translate"></app-button>
+                    <app-button [text]="'CANCEL' | translate" [customClasses]="'outline'" [buttonType]="'submit'"></app-button>
                 </div>
                 <div class="mx-1 d-flex">
-                    <app-button [text]="'ADD' | translate"></app-button>
+                    <app-button [text]="'ADD' | translate" [customClasses]="'fill'" [buttonType]="'reset'"></app-button>
                 </div>
             </div>
 
