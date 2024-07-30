@@ -7,6 +7,11 @@ import { Router } from '@angular/router';
   styleUrl: './event-managment.component.css'
 })
 export class EventManagmentComponent {
+  currentComponent: 'TableComponent' | 'EventsCardListComponent' = 'TableComponent';
+
+  toggleComponent() {
+    this.currentComponent = this.currentComponent === 'TableComponent' ? 'EventsCardListComponent' : 'TableComponent';
+  }
 
   constructor(private router: Router, private cdr: ChangeDetectorRef) {}
 
