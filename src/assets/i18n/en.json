@@ -36,5 +36,7 @@
     "EVENT_LINK": "Event Link",
     "EVENT_DATE": "Event Date",
     "EVENT_TIME": "Event time",
-    "EVENT_CAPACITY": "Event capacity"
+    "EVENT_CAPACITY": "Event capacity",
+    "CANCEL":"Cancel",
+    "ADD": "Add"
 }

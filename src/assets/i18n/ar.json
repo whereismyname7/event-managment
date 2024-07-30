@@ -41,7 +41,9 @@
     "EVENT_LINK": "رابط الفعالية",
     "EVENT_DATE": "تاريخ الفعالية",
     "EVENT_TIME": "وقت الفعالية",
-    "EVENT_CAPACITY": "السعة الاستيعابية"
+    "EVENT_CAPACITY": "السعة الاستيعابية",
+    "CANCEL":"إلغاء",
+    "ADD": "إضافة"
     
   }
   

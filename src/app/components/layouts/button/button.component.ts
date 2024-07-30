@@ -15,6 +15,10 @@ import { Component, Input } from '@angular/core';
     color: #FFFFFF;
     border: 2px solid #264653;
     }
+    .padding{
+    padding-right: 40px;
+    padding-left: 40px;
+    }
     `
   ]
 })
