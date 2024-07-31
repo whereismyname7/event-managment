@@ -5,6 +5,8 @@ import { MatDatepickerIntl } from '@angular/material/datepicker';
 import { TranslateService } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
 import { conditionalRequiredValidator, datePatternValidator } from '../../utils/custom-validator';
+import { events } from '../../components/events/eventsDummyData';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,9 +18,20 @@ export class AddEventComponent implements OnInit {
   submitted = false;
   addEventForm: FormGroup;
   types = ['PHYSICAL', 'ONLINE'];
-  selectedCategory: string = '';
+  categories = ['ENTERTAINMENT', 'PROFESSIONAL', 'EDUCATIONAL', 'OTHER'];
+  selectedCategory: string = ''
+  selectedCategoryNum = -1;;
   selectedTypeNum: number = -1;
   selectedType: string = '';
+  event = {
+    id: -1,
+    name: "",
+    category: "",
+    type: "",
+    capacity: -1,
+    date: "",
+    time: ""
+  };
 
   private readonly _adapter = inject<DateAdapter<unknown, unknown>>(DateAdapter);
   private readonly _intl = inject(MatDatepickerIntl);
@@ -53,7 +66,8 @@ export class AddEventComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public translateService: TranslateService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router
   ) {
     translateService.currentLang === 'ar' ? this.arabic() : this.english();
 
@@ -93,15 +107,18 @@ export class AddEventComponent implements OnInit {
     const translatedPhysical = await this.translateService.get('PHYSICAL').toPromise();
 
     if (eventLocationControl) {
+      eventLocationControl.clearValidators();
       eventLocationControl.setValidators([
         conditionalRequiredValidator('eventType', () => {
           const eventTypeValue = this.addEventForm.get('eventType')?.value;
           return eventTypeValue === this.types[0] || eventTypeValue === translatedPhysical;
         })
       ]);
+      eventLocationControl.updateValueAndValidity();
     }
 
     if (eventLinkControl) {
+      eventLinkControl.clearValidators();
       eventLinkControl.setValidators([
         conditionalRequiredValidator('eventType', () => {
           const eventTypeValue = this.addEventForm.get('eventType')?.value;
@@ -109,14 +126,12 @@ export class AddEventComponent implements OnInit {
         }),
         Validators.pattern('https?://.+')
       ]);
+      eventLinkControl.updateValueAndValidity();
     }
-
-    // Update the validation state
-    eventLocationControl?.updateValueAndValidity();
-    eventLinkControl?.updateValueAndValidity();
   }
 
   handleCategorySelected($event: [string, number]): void {
+    this.selectedCategoryNum = $event[1];
     this.selectedCategory = $event[0];
     console.log('Option selected:', $event[0]);
   }
@@ -126,7 +141,9 @@ export class AddEventComponent implements OnInit {
     this.addEventForm.get('eventType')?.setValue($event[0]);
     console.log('Option selected:', this.selectedTypeNum);
   }
-
+  redirectToEvents() {
+    this.router.navigate(['/events']);
+  }
   onSubmit(): void {
     this.submitted = true;
     const eventDateControl = this.addEventForm.get('eventDate');
@@ -137,11 +154,25 @@ export class AddEventComponent implements OnInit {
     }
     if (this.addEventForm.valid) {
       console.log('Form Submitted!', this.addEventForm.value);
+      this.event.id = events.length + 1
+      this.event.name = this.addEventForm.value['eventName']
+      this.event.category = this.categories[this.selectedCategoryNum];
+      this.event.type = this.types[this.selectedTypeNum];
+      this.event.date = this.addEventForm.value['eventDate']
+      this.event.time = this.addEventForm.value['eventTime']
+      this.event.capacity = this.addEventForm.value['eventCapacity']
+      // this.event.location; //eventLocation
+      // this.event.link; //eventLink
+      console.log(this.event)
+      events.push(this.event)
+      this.redirectToEvents()
+
     } else {
       console.log('Form not valid');
       console.log(this.logValidationErrors());
     }
   }
+
 
   logValidationErrors(): void {
     Object.keys(this.addEventForm.controls).forEach(key => {
@@ -183,7 +214,7 @@ export class AddEventComponent implements OnInit {
         });
       }
     });
-    
+
     console.log('Form errors:');
     console.log('isEventNameInvalid =', this.isEventNameInvalid);
     console.log('isEventCategoriesInvalid =', this.isEventCategoriesInvalid);
