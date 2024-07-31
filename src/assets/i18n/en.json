@@ -25,28 +25,27 @@
     "LANGUAGE": "Ar",
 
     "REMOTE": "Online",
-    "ONSITE": "On-site",
         
     "ENTERTAINMENT": "Entertainment",
     "EDUCATIONAL": "Educational",
     "PROFESSIONAL": "Professional",
     "OTHER": "Other",
   
-    "EVENT_LOCATION": "Event Location",
-    "EVENT_LINK": "Event Link",
+    "EVENT_LOCATION": "Event's Location",
+    "EVENT_LINK": "Event's Link",
     
-    "EVENT_CAPACITY": "Event capacity",
+    "EVENT_CAPACITY": "Event's capacity",
     "CANCEL":"Cancel",
 
     "EVENT_NAME": "Event's Name",
     "EVENT_DATE": "Event's Date",
-    "CAPACITY": "Capacity",
     "EVENT_TYPE": "Event's Type",
     "EVENT_CATEGORY": "Event's Category",
     "EVENT_TIME": "Event's Time",
 
     "TOTAL": "total",
-    "ADD": "+ Add",
+    "ADD+": "+ Add",
+    "ADD": "Add",
     
     "TITLE": "Events List"
 
