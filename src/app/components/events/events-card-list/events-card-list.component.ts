@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { events } from '../eventsDummyData';
-import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { AppRoutes } from '../../../app.constants';
+
 
 @Component({
   selector: 'app-events-card-list',
@@ -12,15 +14,10 @@ export class EventsCardListComponent {
   allEvents = events;
 
 
-  @Output() eventsCount = new EventEmitter<number>();
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-    this.emitEventsCount();
-   
-  }
-
-  emitEventsCount() {
-    this.eventsCount.emit(this.allEvents.length);
+  viewEventDetails(event: any) {
+    this.router.navigate([AppRoutes.EVENT], { state: { event } });
   }
 
 }

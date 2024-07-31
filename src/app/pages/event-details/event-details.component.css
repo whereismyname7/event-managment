@@ -1,0 +1,10 @@
+label {
+    color: #707070;
+}
+p{
+    color: #264653;
+}
+
+.card {
+    min-height: 70vh;
+}

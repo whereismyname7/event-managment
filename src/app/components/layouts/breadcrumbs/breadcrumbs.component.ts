@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './breadcrumbs.component.css'
 })
 export class BreadcrumbsComponent {
+
+  @Input() level_1: any;
+  @Input() link: any;
+
+  @Input() level_2: any;
+  @Input() number: any;
 
 }

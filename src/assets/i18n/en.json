@@ -42,12 +42,16 @@
     "EVENT_TYPE": "Event's Type",
     "EVENT_CATEGORY": "Event's Category",
     "EVENT_TIME": "Event's Time",
+    "EVENT_LOCATION": "Event Location",
+    "EVENT_CAPACITY": "Event Capacity",
+    "EVENT_LINK": "Event Link",
 
     "TOTAL": "total",
     "ADD+": "+ Add",
     "ADD": "Add",
     
-    "TITLE": "Events List"
-
+    "TITLE": "Events List",
+    "EVENT": "Event"
+    
     
 }
