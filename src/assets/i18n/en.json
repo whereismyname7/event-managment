@@ -7,8 +7,9 @@
     "CLICK_HERE": "Click here",
     "ERROR_MESSAGE_1": "Please enter username or password",
     "ERROR_MESSAGE_2": "Password must be at least 8 characters long",
-
+    "ERROR_FORM_INCOMPLETE": "Please fill in all fields",
     "ONLINE": "Online",
+
     "PHYSICAL": "physical",
     "MALE": "Male",
     "FEMALE": "Female",
@@ -16,19 +17,26 @@
     "TOTAL_EVENTS": "Total events",
     "EVENTS_TYPES": "Nature of events",
     "EVENTS_CATEGORIES": "Event categories",
-
     "HOMEPAGE": "Home",
     "EVENT_MANAGMENT": "Event Managment",
     "WELCOME": "WELCOME",
     "YEAR": "2024",
     "POWERED_BY": "Powered by",
-    
     "LANGUAGE": "Ar",
+
+    "REMOTE": "Online",
+    "ONSITE": "On-site",
         
     "ENTERTAINMENT": "Entertainment",
     "EDUCATIONAL": "Educational",
     "PROFESSIONAL": "Professional",
     "OTHER": "Other",
+  
+    "EVENT_LOCATION": "Event Location",
+    "EVENT_LINK": "Event Link",
+    
+    "EVENT_CAPACITY": "Event capacity",
+    "CANCEL":"Cancel",
 
     "EVENT_NAME": "Event's Name",
     "EVENT_DATE": "Event's Date",

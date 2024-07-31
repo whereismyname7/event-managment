@@ -1,0 +1,144 @@
+/* custom-dropdown.component.css */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.text-end {
+  width: 100%;
+}
+
+.arrow-icon {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  z-index: 1;
+  top: calc(100% + 0.5rem);
+  /* Position below the input with some space */
+}
+
+.dropdown-content a {
+  color: #264653;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+.border-top {
+  border-top: 1px solid #dee2e6;
+  /* Bootstrap's default border color */
+}
+
+.margin-sides {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+
+/*  */
+.form-control {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 0.1em solid #1D3557;
+  color: #1D3557;
+
+}
+
+.arrow-icon {
+  transition: ease-in-out 0.3s;
+  position: absolute;
+
+}
+
+.arrow-icon:hover {
+  color: #2A9D8F;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+.arrow-icon-container {
+  position: relative;
+}
+
+.arrow-icon-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
+
+.arrow-icon-container input {
+  flex: 1;
+  background-color: white;
+}
+
+
+
+.arrow-icon-container i {
+  background-color: transparent;
+  border: none;
+  transition: ease;
+  position: absolute;
+
+}
+
+::ng-deep html[lang="ar"] .arrow-icon-container i {
+
+  position: absolute;
+  right: 93%;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+::ng-deep html[lang="en"] .arrow-icon-container i {
+  position: absolute;
+  left: 93%;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+/* custom-dropdown.component.css */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.text-end {
+  width: 100%;
+}
+
+.arrow-icon {
+  position: relative;
+}
+
+.invalid {
+  border-color: #9D1C1C;
+  color: #9D1C1C;
+}
+
+.valid {
+  color: #1D3557;
+  border-color: #1D3557;
+}

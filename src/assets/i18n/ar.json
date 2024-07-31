@@ -7,8 +7,10 @@
     "CLICK_HERE": "اضغط هنا",
     "ERROR_MESSAGE_1": "الرجاء إدخال اسم المستخدم أو كلمة المرور",
     "ERROR_MESSAGE_2": "كلمة المرور يجب أن تتكون من 8 رموز على الأقل",
+    "ERROR_FORM_INCOMPLETE": "الرجاء تعبئة جميع الحقول",
 
     "ONLINE": "عن بعد",
+
     "PHYSICAL": "حضورية",
     "MALE": "ذكر",
     "FEMALE": "أنثى",
@@ -29,6 +31,11 @@
     "EDUCATIONAL": "تعليمية",
     "PROFESSIONAL": "مهنية",
     "OTHER": "أخرى",
+    "EVENT_LOCATION": "موقع الفعالية",
+    "EVENT_LINK": "رابط الفعالية",
+    "EVENT_CAPACITY": "السعة الاستيعابية",
+    "CANCEL":"إلغاء",
+    "ADD": "إضافة"
 
     "EVENT_NAME": "اسم الفعالية",
     "EVENT_DATE": "تاريخ الفعالية",
