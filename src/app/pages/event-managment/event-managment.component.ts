@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppRoutes } from '../../app.constants';
 
 @Component({
   selector: 'app-event-managment',
@@ -23,7 +24,7 @@ export class EventManagmentComponent {
   }
 
   redirectToAddEvent() {
-    this.router.navigate(['/add-event']);
+    this.router.navigate([AppRoutes.ADD_EVENT]);
   }
   
 

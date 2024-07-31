@@ -1,5 +1,7 @@
 <div class="container-fluid justify-content-center p-4">
-    <div class="card shadow">
+    <app-breadcrumbs [level_1]="'TITLE' | translate" [link]="eventListLink"
+    [level_2]="'ADD' | translate"></app-breadcrumbs>
+    <div class="card shadow mt-3">
         <div class="d-flex justify-content-start align-items-center p-1 m-4 " id="errormsg"
             *ngIf="submitted && (isEventNameInvalid || isEventCategoriesInvalid||isEventTypeInvalid||isEventLocationInvalid||isEventLinkInvalid||isEventDateInvalid||isEventTimeInvalid||isEventCapacityInvalid)">
             <i class="bi bi-exclamation-circle-fill mx-1"></i>
