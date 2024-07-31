@@ -5,6 +5,7 @@ import { MatDatepickerIntl } from '@angular/material/datepicker';
 import { TranslateService } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
 import { conditionalRequiredValidator, datePatternValidator } from '../../utils/custom-validator';
+import { AppRoutes } from '../../app.constants';
 import { events } from '../../components/events/eventsDummyData';
 import { Router } from '@angular/router';
 
@@ -15,6 +16,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-event.component.css']
 })
 export class AddEventComponent implements OnInit {
+
+  eventListLink = AppRoutes.EVENTS;
+
   submitted = false;
   addEventForm: FormGroup;
   types = ['PHYSICAL', 'ONLINE'];

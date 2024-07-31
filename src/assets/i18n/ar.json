@@ -41,10 +41,6 @@
     "EVENT_TYPE": "طبيعة الفعالية",
     "EVENT_CATEGORY": "تصنيف الفعالية",
     "EVENT_TIME": "وقت الفعالية",
-    "EVENT_LOCATION": "موقع الفعالية",
-    "EVENT_CAPACITY": "السعة الاستيعابية",
-    "EVENT_LINK": "رابط الفعالية",
-    
 
     "TOTAL": "الإجمالي",
     "ADD+": "+ إضافة",
