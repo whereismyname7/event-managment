@@ -28,9 +28,11 @@ export class AddEventComponent implements OnInit {
     name: "",
     category: "",
     type: "",
+    location:"",
+    link:"https://",
     capacity: -1,
     date: "",
-    time: ""
+    time: "",
   };
 
   private readonly _adapter = inject<DateAdapter<unknown, unknown>>(DateAdapter);
@@ -161,8 +163,8 @@ export class AddEventComponent implements OnInit {
       this.event.date = this.addEventForm.value['eventDate']
       this.event.time = this.addEventForm.value['eventTime']
       this.event.capacity = this.addEventForm.value['eventCapacity']
-      // this.event.location; //eventLocation
-      // this.event.link; //eventLink
+      this.event.location = this.addEventForm.value['eventLocation']; 
+      this.event.link = this.addEventForm.value['eventLink']; 
       console.log(this.event)
       events.push(this.event)
       this.redirectToEvents()
