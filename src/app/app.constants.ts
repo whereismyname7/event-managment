@@ -3,5 +3,6 @@ export const AppRoutes = {
     DASHBOARD: 'dashboard',
     EVENTS: 'events',
     EVENT: 'event'
+    ADD_EVENT: 'add-event',
   };
   

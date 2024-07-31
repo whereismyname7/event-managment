@@ -1,0 +1,12 @@
+<!-- custom-dropdown.component.html -->
+<div class="dropdown d-flex" [class.show]="isOpen">
+    <div class="text-end arrow-icon-container">
+      <input class="form-control no-outline" type="text" [value]="selectedValue" readonly (click)="toggleDropdown()" [ngClass]="{ 'invalid': invalid, 'valid': !invalid }">
+      <i class="bi bi-caret-down arrow-icon" (click)="toggleDropdown()"></i>
+    </div>
+  
+    <div class="dropdown-content" [class.show]="isOpen">
+      <a href="#" *ngFor="let option of options; let index = index" (click)="selectOption($event, option, index)" [class.border-top]="index !== 0" [class.margin-sides]="true">{{ option }}</a>
+    </div>
+  </div>
+  

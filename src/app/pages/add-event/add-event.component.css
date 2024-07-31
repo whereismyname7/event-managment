@@ -1,0 +1,157 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: black;
+
+    font-family: 'Neo Sans Arabic';
+}
+
+.container-fluid {
+    width: 80vw;
+}
+
+
+label {
+    color: #1D3557;
+}
+
+.form-control {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 0.1em solid #1D3557;
+}
+
+
+
+#errormsg {
+    color: #9D1C1C;
+    background: #F3E3E3;
+    border: 0.1em solid #9D1C1C;
+    border-radius: 0.25em;
+}
+
+.invalid {
+    border-color: #9D1C1C;
+    color: #9D1C1C;
+}
+
+.valid {
+    color: #1D3557;
+    border-color: #1D3557;
+}
+
+.no-outline:focus {
+    box-shadow: none !important;
+}
+
+
+
+#dt {
+    text-indent: -500px;
+    height: 25px;
+    width: 200px;
+}
+
+mat-form-field {
+    background-color: white;
+    color: black;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 0.1em solid #1D3557;
+    outline: none;
+    box-shadow: none;
+}
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.date-picker-container label {
+    margin-right: 10px;
+}
+
+.date-picker-container input {
+    flex: 1;
+}
+
+
+
+.date-picker-container button {
+    background-color: white;
+    border: none;
+    transition: ease;
+    position: absolute;
+
+}
+
+::ng-deep html[lang="ar"] .date-picker-container button {
+
+    position: absolute;
+    right: 90%;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+::ng-deep html[lang="en"] .date-picker-container button {
+    position: absolute;
+    left: 90%;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+option {
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 1px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid #1D3557;
+    background-color: white;
+}
+
+.select {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 0.1em solid #1D3557;
+    background-color: white;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 1px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid #1D3557;
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+
+}
+
+.divide-y>*+* {
+    border-top: 1px solid #dee2e6;
+    /* Default Bootstrap border color */
+}
+
+#errormsg {
+    color: #9D1C1C;
+    background: #F3E3E3;
+    border: 0.1em solid #9D1C1C;
+    border-radius: 0.25em;
+}
+
+.form-btn-container {
+    color: white;
+}
+
+/* ::ng-deep html[lang="ar"] .form-btn-container{
+   
+}
+::ng-deep html[lang="en"] .form-btn-container{
+   
+} */
