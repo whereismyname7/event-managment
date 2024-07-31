@@ -32,6 +32,12 @@ import { CustomDateAdapter } from './utils/CustomDateAdapter';
 import { DatePipe } from '@angular/common';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
+import { TableComponent } from './components/events/table/table.component';
+import { EventsCardListComponent } from './components/events/events-card-list/events-card-list.component';
+import { EventManagmentComponent } from './pages/event-managment/event-managment.component';
+import { SwitchComponent } from './components/layouts/switch/switch.component';
+
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -62,7 +68,11 @@ export const MY_DATE_FORMATS = {
     DashboardComponent,
     AddEventComponent,
     CustomDropdownComponent,
-    
+    TableComponent,
+    EventsCardListComponent,
+    EventManagmentComponent,
+    SwitchComponent
+
   ],
   imports: [
     BrowserModule,

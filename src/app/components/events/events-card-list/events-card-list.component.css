@@ -1,0 +1,33 @@
+.card{
+    border: 1;
+    box-shadow: 0px 0px 25px 0px #0000001A;
+    color: #264653;
+    width: 30%;
+    font-family: Neo Sans Arabic;
+    font-weight: 500;
+}
+
+.card:hover{
+    background: #FBF4E2;
+    cursor: pointer;
+}
+
+.purple{
+    background: #F0E1FE;
+    color: #C48CFF;
+}
+
+.orange{
+    background: #FFE3DC;
+    color: #FF9479;
+}
+
+.green{
+    background: #D2EED7;
+    color: #4BBF64;
+}
+
+.pink{
+    background: #FDD4DD;
+    color: #FA5A7D;
+}

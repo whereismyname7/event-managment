@@ -9,7 +9,7 @@
     "ERROR_MESSAGE_2": "Password must be at least 8 characters long",
     "ERROR_FORM_INCOMPLETE": "Please fill in all fields",
     "ONLINE": "Online",
-    "ON-SITE": "On-site",
+
     "PHYSICAL": "physical",
     "MALE": "Male",
     "FEMALE": "Female",
@@ -23,20 +23,32 @@
     "YEAR": "2024",
     "POWERED_BY": "Powered by",
     "LANGUAGE": "Ar",
+
     "REMOTE": "Online",
     "ONSITE": "On-site",
+        
     "ENTERTAINMENT": "Entertainment",
     "EDUCATIONAL": "Educational",
     "PROFESSIONAL": "Professional",
     "OTHER": "Other",
-    "EVENT_NAME": "Event name",
-    "EVENT_CATEGORY": "Event category",
-    "EVENT_TYPE": "Event Type",
+  
     "EVENT_LOCATION": "Event Location",
     "EVENT_LINK": "Event Link",
-    "EVENT_DATE": "Event Date",
-    "EVENT_TIME": "Event time",
+    
     "EVENT_CAPACITY": "Event capacity",
     "CANCEL":"Cancel",
-    "ADD": "Add"
+
+    "EVENT_NAME": "Event's Name",
+    "EVENT_DATE": "Event's Date",
+    "CAPACITY": "Capacity",
+    "EVENT_TYPE": "Event's Type",
+    "EVENT_CATEGORY": "Event's Category",
+    "EVENT_TIME": "Event's Time",
+
+    "TOTAL": "total",
+    "ADD": "+ Add",
+    
+    "TITLE": "Events List"
+
+    
 }

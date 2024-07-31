@@ -10,7 +10,7 @@
     "ERROR_FORM_INCOMPLETE": "الرجاء تعبئة جميع الحقول",
 
     "ONLINE": "عن بعد",
-    "ON-SITE": "حضورية",
+
     "PHYSICAL": "حضورية",
     "MALE": "ذكر",
     "FEMALE": "أنثى",
@@ -27,23 +27,30 @@
     
     "LANGUAGE": "En",
 
-    "REMOTE": "عن بعد",
-    "ONSITE": "حضورية",
-
     "ENTERTAINMENT": "ترفيهية",
     "EDUCATIONAL": "تعليمية",
     "PROFESSIONAL": "مهنية",
     "OTHER": "أخرى",
-    "EVENT_NAME": "اسم الفعالية",
-    "EVENT_CATEGORY": "تصنيف الفعالية",
-    "EVENT_TYPE": "طبيعة الفعالية",
     "EVENT_LOCATION": "موقع الفعالية",
     "EVENT_LINK": "رابط الفعالية",
-    "EVENT_DATE": "تاريخ الفعالية",
-    "EVENT_TIME": "وقت الفعالية",
     "EVENT_CAPACITY": "السعة الاستيعابية",
     "CANCEL":"إلغاء",
     "ADD": "إضافة"
+
+    "EVENT_NAME": "اسم الفعالية",
+    "EVENT_DATE": "تاريخ الفعالية",
+    "CAPACITY": "السعة الاستيعابية",
+    "EVENT_TYPE": "طبيعة الفعالية",
+    "EVENT_CATEGORY": "تصنيف الفعالية",
+    "EVENT_TIME": "وقت الفعالية",
+
+    "TOTAL": "الإجمالي",
+    "ADD": "+ إضافة",
+
+    "TITLE": "قائمة الفعاليات"
+
+    
+
     
   }
   

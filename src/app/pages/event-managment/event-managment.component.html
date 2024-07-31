@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="d-flex m-3 justify-content-between">
+        <h2>{{ 'TITLE' | translate }}</h2>
+        <app-switch [currentComponent]="currentComponent" (click)="toggleComponent()"></app-switch>
+    </div>
+    <hr>
+    <div class="d-flex m-3 justify-content-between">
+        <h3>{{ 'TOTAL' | translate }}({{ eventsCount }})</h3>
+        <app-button [text]="'ADD' | translate" (click)="redirectToAddEvent()"></app-button>
+    </div>
+
+    <div *ngIf="currentComponent === 'TableComponent'">
+
+
+        <app-table (eventsCount)="onEventsCountChange($event)"></app-table>
+    </div>
+    <div *ngIf="currentComponent === 'EventsCardListComponent'">
+        <app-events-card-list (eventsCount)="onEventsCountChange($event)"></app-events-card-list>
+    </div>
+
+
+</div>
