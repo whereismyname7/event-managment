@@ -147,7 +147,7 @@ export class AddEventComponent implements OnInit {
     console.log('Option selected:', this.selectedTypeNum);
   }
   redirectToEvents() {
-    this.router.navigate(['/events']);
+    this.router.navigate([AppRoutes.EVENTS], { state: { event: this.event } });
   }
   onSubmit(): void {
     this.submitted = true;

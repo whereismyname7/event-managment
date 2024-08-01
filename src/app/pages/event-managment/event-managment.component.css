@@ -5,3 +5,10 @@ app-button{
 .container{
     color: #264653;
 }
+
+#successmsg {
+    color: #228B22;
+    background: #E0EEE0;
+    border: 0.1em solid #228B22;
+    border-radius: 0.25em;
+}

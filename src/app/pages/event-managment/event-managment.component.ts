@@ -13,8 +13,11 @@ export class EventManagmentComponent {
   toggleComponent() {
     this.currentComponent = this.currentComponent === 'TableComponent' ? 'EventsCardListComponent' : 'TableComponent';
   }
-
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
+  successMsg:boolean = false;
+  constructor(private router: Router, private cdr: ChangeDetectorRef) {
+    const navigation = this.router.getCurrentNavigation();
+    this.successMsg = navigation?.extras.state?.['event'] !== undefined;
+  }
 
    eventsCount = 0;
 
