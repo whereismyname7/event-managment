@@ -32,10 +32,10 @@ export class AddEventComponent implements OnInit {
     name: "",
     category: "",
     type: "",
-    where:"",
     capacity: -1,
     date: "",
     time: "",
+    where: "",
   };
 
   private readonly _adapter = inject<DateAdapter<unknown, unknown>>(DateAdapter);
@@ -166,7 +166,7 @@ export class AddEventComponent implements OnInit {
       this.event.date = this.addEventForm.value['eventDate']
       this.event.time = this.addEventForm.value['eventTime']
       this.event.capacity = this.addEventForm.value['eventCapacity']
-      this.event.where = this.selectedCategoryNum ==0?  this.addEventForm.value['eventLocation'] : this.addEventForm.value['eventLink'];
+      this.event.where = this.selectedTypeNum == 0 ? this.addEventForm.value['eventLocation'] : this.addEventForm.value['eventLink'];
       console.log(this.event)
       events.push(this.event)
       this.redirectToEvents()
