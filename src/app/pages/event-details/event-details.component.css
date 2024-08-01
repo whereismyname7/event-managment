@@ -8,3 +8,7 @@ p{
 .card {
     min-height: 70vh;
 }
+
+a{
+    color: #264653;
+}
