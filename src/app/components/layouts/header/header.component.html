@@ -11,23 +11,25 @@
             <div class="mx-2 link">
                 <a [routerLink]="['/events']">
                     {{ 'EVENT_MANAGMENT' | translate }}
-                  </a>                  
+                </a>
             </div>
         </nav>
         <a class="mx-2 link" (click)="switchLang()">
-            {{ 'LANGUAGE' | translate }} 
+            {{ 'LANGUAGE' | translate }}
             <i class="bi bi-globe mx-1"></i>
         </a>
     </div>
     <div class="vr text-secondary "></div>
     <div class="align-items-center col-2 header-subcontent mx-2  container-fluid">
-        <div >
+        <div>
             <i class="bi bi-person-circle mx-1 link"></i>
             <span>
                 {{ 'WELCOME' | translate }}
             </span>
         </div>
-        <div class="text-end arrow-icon"><i class="bi bi-caret-down "></i> </div>
+        <div class="text-end logout-icon" (click)="redirectToLogin()">
+            <i [ngClass]="currentLang === 'en' ? 'bi bi-box-arrow-right' : 'bi bi-box-arrow-left'"></i>
+        </div>
 
     </div>
 </header>

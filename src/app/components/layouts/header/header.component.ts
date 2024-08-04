@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { AppRoutes } from '../../../app.constants';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
-  constructor(public translate: TranslateService) {
+  currentLang = this.translate.currentLang;
+  constructor(public translate: TranslateService, private router: Router) {
     this.translate.addLangs(['en', 'ar']);
     this.translate.setDefaultLang('en');
 
@@ -20,7 +22,12 @@ export class HeaderComponent {
     const currentLang = this.translate.currentLang;
     const newLang = currentLang === 'ar' ? 'en' : 'ar';
     this.translate.use(newLang);
-    document.documentElement.setAttribute('lang',newLang) 
+    document.documentElement.setAttribute('lang',newLang);
+    this.currentLang = newLang;
    }
+
+   redirectToLogin() {
+    this.router.navigate([AppRoutes.LOGIN]);
+  }
 
 }

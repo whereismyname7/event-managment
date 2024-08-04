@@ -39,10 +39,10 @@ a:hover {
     cursor: pointer;
     transition: ease-in-out 0.3s;
 }
-.arrow-icon{
+.logout-icon{
     transition: ease-in-out 0.3s;
 }
-.arrow-icon:hover{
+.logout-icon:hover{
     color: #2A9D8F;
     cursor: pointer;
     transition: ease-in-out 0.3s;
