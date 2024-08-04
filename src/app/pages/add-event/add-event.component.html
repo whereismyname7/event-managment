@@ -54,7 +54,7 @@
                     <label for="eventLink"
                         [ngClass]="{ 'invalid': isEventLinkInvalid, 'valid': !isEventLinkInvalid }">{{'EVENT_LINK' |
                         translate}}</label> <span class="invalid">*</span>
-                    <input class="form-control no-outline" type="text" formControlName="eventLink"
+                    <input class="form-control no-outline" type="text" formControlName="eventLink" placeholder="e.g https://example.com"
                         [ngClass]="{ 'invalid': isEventLinkInvalid, 'valid': !isEventLinkInvalid }">
                 </div>
 
@@ -92,7 +92,7 @@
                     <label for="eventCapacity"
                         [ngClass]="{ 'invalid': isEventCapacityInvalid, 'valid': !isEventCapacityInvalid }">{{'EVENT_CAPACITY'|
                         translate}}</label> <span class="invalid">*</span>
-                    <input class="form-control no-outline" type="number" formControlName="eventCapacity"
+                    <input class="form-control no-outline" type="number" formControlName="eventCapacity" placeholder="{{ 'AT_LEAST_5' | translate }}"
                         [ngClass]="{ 'invalid': isEventCapacityInvalid, 'valid': !isEventCapacityInvalid }">
                 </div>
             </div>

@@ -49,7 +49,11 @@
     "ADD": "Add",
     
     "TITLE": "Events List",
-    "EVENT": "Event"
+    "EVENT": "Event",
+
+    "AT_LEAST_5": "At least 5"
+
+
     
     
 }
