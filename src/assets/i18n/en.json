@@ -11,7 +11,7 @@
     "SUCCESS_EVENT_ADDED": "Event added successfully",
     "ONLINE": "Online",
 
-    "PHYSICAL": "physical",
+    "PHYSICAL": "Physical",
     "MALE": "Male",
     "FEMALE": "Female",
     "TOTAL_ATTENDENCE": "Total attendance",
@@ -44,7 +44,7 @@
     "EVENT_CATEGORY": "Event's Category",
     "EVENT_TIME": "Event's Time",
 
-    "TOTAL": "total",
+    "TOTAL": "Total",
     "ADD+": "+ Add",
     "ADD": "Add",
     
