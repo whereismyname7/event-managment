@@ -8,6 +8,7 @@
     "ERROR_MESSAGE_1": "Please enter username or password",
     "ERROR_MESSAGE_2": "Password must be at least 8 characters long",
     "ERROR_FORM_INCOMPLETE": "Please fill in all fields",
+    "SUCCESS_EVENT_ADDED": "Event added successfully",
     "ONLINE": "Online",
 
     "PHYSICAL": "physical",
