@@ -30,7 +30,8 @@
 
             <div class="col my-3" *ngIf="event.type === 'ONLINE'">
                 <label for="eventLink">{{'EVENT_LINK' | translate}}</label>
-                <p>{{event.where}}</p>
+                <br>
+                <a href={{event.where}}>{{event.where}}</a>
             </div>
 
             <div class="col my-3 ">
