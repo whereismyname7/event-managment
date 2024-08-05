@@ -5,6 +5,7 @@ import { AppRoutes } from '../../../app.constants';
 import { PageEvent } from '@angular/material/paginator';
 
 
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -14,7 +15,7 @@ export class TableComponent{
   @Input() event: any;
   events = events;
   pagedEvents: any[] = [];
-  pageSize = 5;
+  pageSize = 10;
 
 
   @Output() eventsCount = new EventEmitter<number>();
