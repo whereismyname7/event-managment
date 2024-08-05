@@ -1,4 +1,4 @@
-<main class="d-flex">
+<main class="d-flex flex-column"> 
     <table id="myTable" class="table table-hover-custom m-3">
         <thead>
             <tr>
@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let event of events" (click)="viewEventDetails(event)">
+        <tr *ngFor="let event of pagedEvents" (click)="viewEventDetails(event)">
             <td> {{ event.name }} </td>
             <td> {{ event.category | translate  }} </td>
             <td> {{ event.type | translate  }} </td>
@@ -21,4 +21,7 @@
         </tr>
     </tbody>
     </table>
+    
+    <mat-paginator [length]="events.length" [pageSize]="pageSize" [pageSizeOptions]="[5]" (page)="onPageChange($event)">
+    </mat-paginator>
 </main>

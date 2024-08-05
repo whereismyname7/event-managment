@@ -37,6 +37,7 @@ import { EventsCardListComponent } from './components/events/events-card-list/ev
 import { EventManagmentComponent } from './pages/event-managment/event-managment.component';
 import { SwitchComponent } from './components/layouts/switch/switch.component';
 import { EventDetailsComponent } from './pages/event-details/event-details.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -99,11 +100,12 @@ export const MY_DATE_FORMATS = {
     MatDatepickerModule,
     NgxMaterialTimepickerModule.setOpts('en-US',''),
     NgxMaterialTimepickerModule.setOpts('ar-AE', 'arab'),
+    MatPaginatorModule,
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    { provide: MAT_DATE_LOCALE, useValue: 'ar-US' }, // Use your locale
+    { provide: MAT_DATE_LOCALE, useValue: 'ar-US' },
     { provide: DateAdapter, useClass: CustomDateAdapter },
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
     DatePipe
