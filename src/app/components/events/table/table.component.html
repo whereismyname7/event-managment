@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let event of pagedEvents" (click)="viewEventDetails(event)">
+            <tr id="eventsRows" *ngFor="let event of pagedEvents" (click)="viewEventDetails(event)">
                 <td> {{ event.name }} </td>
                 <td><i class="bi bi-circle-fill" [ngClass]="{
                     'purple': event.category === 'ENTERTAINMENT',
@@ -24,9 +24,14 @@
                 <td> {{ event.date }} </td>
                 <td> {{ event.time }} </td>
             </tr>
+            <tr>
+                <td colspan="6">
+                  <mat-paginator [length]="events.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" (page)="onPageChange($event)">
+                  </mat-paginator>
+                </td>
+              </tr>
         </tbody>
     </table>
     
-    <mat-paginator [length]="events.length" [pageSize]="pageSize" [pageSizeOptions]="[10]" (page)="onPageChange($event)">
-    </mat-paginator>
+    
 </main>

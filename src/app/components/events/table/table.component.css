@@ -1,4 +1,4 @@
-tr:hover td {
+#eventsRows:hover td {
     background-color: #FBF4E2;
     cursor: pointer;
 } 
@@ -32,4 +32,30 @@ i:hover{
   .pink{
     color: #FA5A7D
   }
+
+  ::ng-deep .mat-mdc-paginator .mat-mdc-paginator-container{
+    justify-content: space-between;
+    background-color: #FFFF;
+  }
+
+  ::ng-deep .mat-mdc-paginator .mdc-notched-outline__leading{
+    border: none;
+}
+
+::ng-deep .mat-mdc-paginator .mdc-notched-outline__trailing{
+    border: none;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions{
+    direction: ltr !important;
+  }
+
+  ::ng-deep .mat-mdc-paginator-page-size{
+    direction: ltr !important;
+  }
+
+  ::ng-deep .mat-mdc-paginator-page-size-label{
+    font-family:Neo Sans Arabic;
+    color: #545556;
+    }
   
