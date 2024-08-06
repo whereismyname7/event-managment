@@ -15,7 +15,12 @@
 
             <div class="col my-3">
                 <label for="eventCategories">{{'EVENT_CATEGORY' | translate}}</label>
-                <p>{{ event.category | translate }}</p>
+                <p><span class="px-2" [ngClass]="{
+                    'purple': event.category === 'ENTERTAINMENT',
+                    'orange': event.category === 'PROFESSIONAL',
+                    'green': event.category === 'EDUCATIONAL',
+                    'pink': event.category === 'OTHER'
+                    }">{{ event.category | translate }}</span></p>
             </div>
 
             <div class="col my-3">
