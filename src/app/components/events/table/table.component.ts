@@ -1,10 +1,10 @@
-import { Component, Input, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { events } from '../eventsDummyData';
 import { Router } from '@angular/router';
 import { AppRoutes } from '../../../app.constants';
-// import 'datatables.net';
-// import 'datatables.net-responsive';
- 
+import { PageEvent } from '@angular/material/paginator';
+
+
 
 @Component({
   selector: 'app-table',
@@ -14,7 +14,8 @@ import { AppRoutes } from '../../../app.constants';
 export class TableComponent{
   @Input() event: any;
   events = events;
-  allEvents = events;
+  pagedEvents: any[] = [];
+  pageSize = 10;
 
 
   @Output() eventsCount = new EventEmitter<number>();
@@ -23,11 +24,21 @@ export class TableComponent{
 
   ngOnInit() {
     this.emitEventsCount();
-   
+    this.updatePagedEvents(0, this.pageSize);
   }
 
   emitEventsCount() {
-    this.eventsCount.emit(this.allEvents.length);
+    this.eventsCount.emit(this.events.length);
+  }
+
+  onPageChange(event: PageEvent) {
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = startIndex + event.pageSize;
+    this.updatePagedEvents(startIndex, endIndex);
+  }
+
+  updatePagedEvents(startIndex: number, endIndex: number) {
+    this.pagedEvents = this.events.slice(startIndex, endIndex);
   }
 
   viewEventDetails(event: any) {
