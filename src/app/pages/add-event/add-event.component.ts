@@ -8,6 +8,7 @@ import { conditionalRequiredValidator, datePatternValidator } from '../../utils/
 import { AppRoutes } from '../../app.constants';
 import { events } from '../../components/events/eventsDummyData';
 import { Router } from '@angular/router';
+import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 
 
 @Component({
@@ -24,7 +25,21 @@ export class AddEventComponent implements OnInit {
   types = ['PHYSICAL', 'ONLINE'];
   categories = ['ENTERTAINMENT', 'PROFESSIONAL', 'EDUCATIONAL', 'OTHER'];
   selectedCategory: string = ''
-  selectedCategoryNum = -1;;
+  selectedCategoryNum = -1;
+  mainTheme: NgxMaterialTimepickerTheme = {
+    container: {
+        bodyBackgroundColor: '#fff',
+        buttonColor: '#2A9D8F'
+    },
+    dial: {
+        dialBackgroundColor: '#2A9D8F',
+    },
+    clockFace: {
+        clockHandColor: '#2A9D8F',
+        clockFaceTimeInactiveColor: '#2A9D8F'
+    }
+};
+;
   selectedTypeNum: number = -1;
   selectedType: string = '';
   event = {
