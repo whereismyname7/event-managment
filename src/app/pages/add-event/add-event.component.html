@@ -84,7 +84,7 @@
                     <input class="form-control no-outline" formControlName="eventTime" placeholder="hh:mm"
                         aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" readonly
                         [ngClass]="{ 'invalid': isEventTimeInvalid, 'valid': !isEventTimeInvalid }">
-                    <ngx-material-timepicker #fullTime [timepickerClass]="'time-picker'"></ngx-material-timepicker>
+                    <ngx-material-timepicker #fullTime [timepickerClass]="'time-picker'" [theme]="mainTheme"></ngx-material-timepicker>
 
                 </div>
 
