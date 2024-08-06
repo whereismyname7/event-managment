@@ -9,3 +9,27 @@ th{
 td, th{
     color: #264653;
 }
+
+i{
+    font-size: 12px;
+}
+i:hover{
+    background: #FBF4E2;
+}
+
+.purple{
+    color: #C48CFF;
+  }
+  
+  .orange{
+    color: #FF9479
+  }
+  
+  .green{
+    color: #4BBF64
+  }
+  
+  .pink{
+    color: #FA5A7D
+  }
+  

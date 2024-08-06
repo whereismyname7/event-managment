@@ -12,3 +12,27 @@ p{
 a{
     color: #264653;
 }
+
+.purple{
+    background: #F0E1FE;
+    color: #C48CFF;
+    border-radius: 8px;
+}
+
+.orange{
+    background: #FFE3DC;
+    color: #FF9479;
+    border-radius: 8px;
+}
+
+.green{
+    background: #D2EED7;
+    color: #4BBF64;
+    border-radius: 8px;
+}
+
+.pink{
+    background: #FDD4DD;
+    color: #FA5A7D;
+    border-radius: 8px;
+}

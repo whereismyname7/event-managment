@@ -1,5 +1,5 @@
-<main class="d-flex flex-column"> 
-    <table id="myTable" class="table table-hover-custom m-3">
+<main class="d-flex flex-column">
+    <table id="myTable" class="table table-hover-custom m-3 mb-5">
         <thead>
             <tr>
                 <th>{{ 'EVENT_NAME' | translate }}</th>
@@ -11,15 +11,20 @@
             </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let event of pagedEvents" (click)="viewEventDetails(event)">
-            <td> {{ event.name }} </td>
-            <td> {{ event.category | translate  }} </td>
-            <td> {{ event.type | translate  }} </td>
-            <td> {{ event.capacity }} </td>
-            <td> {{ event.date }} </td>
-            <td> {{ event.time }} </td>
-        </tr>
-    </tbody>
+            <tr *ngFor="let event of pagedEvents" (click)="viewEventDetails(event)">
+                <td> {{ event.name }} </td>
+                <td><i class="bi bi-circle-fill" [ngClass]="{
+                    'purple': event.category === 'ENTERTAINMENT',
+                    'orange': event.category === 'PROFESSIONAL',
+                    'green': event.category === 'EDUCATIONAL',
+                    'pink': event.category === 'OTHER'
+                    }"> </i> {{ event.category | translate }}</td>
+                <td> {{ event.type | translate }} </td>
+                <td> {{ event.capacity }} </td>
+                <td> {{ event.date }} </td>
+                <td> {{ event.time }} </td>
+            </tr>
+        </tbody>
     </table>
     
     <mat-paginator [length]="events.length" [pageSize]="pageSize" [pageSizeOptions]="[10]" (page)="onPageChange($event)">
