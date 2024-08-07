@@ -5,8 +5,8 @@
 
 .legend-color {
     display: inline-block;
-    width: 12px; /* Adjust width as needed */
-    height: 12px; /* Adjust height as needed */
+    width: 12px;
+    height: 12px;
     margin-right: 5px; /* Adjust spacing between color box and text */
     border-radius: 2px;
 }
@@ -19,4 +19,8 @@ color: #264653;
 
 .ltr{
     direction: ltr;
+}
+
+::ng-deep .gridpanel {
+    display: none;
 }

@@ -18,7 +18,7 @@ export class AdvancedPieComponent implements OnInit {
   showLegend: boolean = true;
   showLabels: boolean = true;
   label: string = '';
-  animations: boolean = false;
+  animations: boolean = true;
 
   colorScheme: Color = {
     name: 'custom',
