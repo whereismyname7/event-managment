@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../events.service';
+import { EventCategory } from '../../../events.service';
+
 
 
 
@@ -11,7 +13,8 @@ import { EventsService } from '../../../events.service';
   styleUrl: './pie-grid.component.css'
 })
 export class PieGridComponent implements OnInit {
-  eventCategories: any[] = [];
+  eventCategories: EventCategory[] = [];
+  chartData: any[] = [];
   currentLang: string;
   view: [number, number] = [640, 200];
 
@@ -33,6 +36,7 @@ export class PieGridComponent implements OnInit {
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
       this.currentLang = this.translateService.currentLang;
+      
       this.transformDataForChart();
     });
     this.fetchEventCategories();
@@ -51,9 +55,11 @@ export class PieGridComponent implements OnInit {
   }
 
   transformDataForChart(): void {
-    this.eventCategories = this.eventCategories.map(category => ({
+    console.log(this.currentLang);
+    this.chartData = this.eventCategories.map(category => ({
       name: this.currentLang === 'ar' ? category.nameAr : category.nameEn,
       value: category.value
     }));
   }
+  
 }
