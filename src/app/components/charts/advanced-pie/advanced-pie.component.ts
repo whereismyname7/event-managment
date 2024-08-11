@@ -45,10 +45,10 @@ export class AdvancedPieComponent implements OnInit {
       this.currentLang = this.translateService.currentLang;
       this.transformDataForChart();
     });
-    this.fetchEventCategories();
+    this.fetchEventTypes();
   }
-  
-  fetchEventCategories(): void {
+
+  fetchEventTypes(): void {
     this.eventsService.getEventTypes().subscribe(
       (data) => {
         this.eventTypes = data;
