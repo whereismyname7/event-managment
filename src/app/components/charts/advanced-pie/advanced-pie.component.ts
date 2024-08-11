@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { eventTypes } from '../dummyData';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
+import { EventsService, eventType } from '../../../events.service';
 
 @Component({
   selector: 'app-advanced-pie',
@@ -10,10 +10,15 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AdvancedPieComponent implements OnInit {
 
-  eventTypes: any[] = eventTypes;
+  eventTypes: eventType[] = [];
+  chartData: {
+    name: string;
+    value: number;
+    extra: { code: string };
+  }[] = [];
   view: [number, number] = [660, 180];
+  currentLang: string = '';
 
-  // options
   gradient: boolean = false;
   showLegend: boolean = true;
   showLabels: boolean = true;
@@ -27,27 +32,41 @@ export class AdvancedPieComponent implements OnInit {
     domain: ['#E9C46A', '#5FB6AB']
   };
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private eventsService: EventsService) {
     this.translateService.addLangs(['en', 'ar']);
     this.translateService.setDefaultLang('ar');
-
     const browserLang = this.translateService.getBrowserLang();
-    this.translateService.use(browserLang && browserLang.match(/en|ar/) ? browserLang : 'en');
-    this.translateEvents();
+    this.currentLang = browserLang && browserLang.match(/en|ar/) ? browserLang : 'ar';
+    this.translateService.use(this.currentLang);
 
   }
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
-      this.translateEvents();
+      this.currentLang = this.translateService.currentLang;
+      this.transformDataForChart();
     });
+    this.fetchEventCategories();
   }
-  translateEvents() {
+  
+  fetchEventCategories(): void {
+    this.eventsService.getEventTypes().subscribe(
+      (data) => {
+        this.eventTypes = data;
+        this.transformDataForChart();
+      },
+      (error) => {
+        console.error('Error fetching event types:', error);
+      },
+    );
+  }
 
-    this.eventTypes = eventTypes.map(event => ({
-      ...event,
-      name: this.translateService.instant(event.name)
+  transformDataForChart(): void {
+    this.chartData = this.eventTypes.map(type => ({
+      name: this.currentLang === 'ar' ? type.nameAr : type.nameEn,
+      value: type.value,
+      extra: { code: type.extra.code },
     }));
-    Object.assign(this.eventTypes);
+    Object.assign(this, { chartData: this.chartData });
   }
 
   percentageFormatting(value: number): string {
