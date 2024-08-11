@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { eventCategories } from '../dummyData';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../events.service';
@@ -12,9 +11,7 @@ import { EventsService } from '../../../events.service';
   styleUrl: './pie-grid.component.css'
 })
 export class PieGridComponent implements OnInit {
-  // eventCategories: any[] = eventCategories;
   eventCategories: any[] = [];
-  chartData: any[] = [];
   currentLang: string;
   view: [number, number] = [640, 200];
 
@@ -35,23 +32,11 @@ export class PieGridComponent implements OnInit {
   }
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
-      
       this.currentLang = this.translateService.currentLang;
       this.transformDataForChart();
-      // this.translateEvents();
     });
     this.fetchEventCategories();
-    
   }
-  // translateEvents() {
-    
-  //   // this.eventCategories = eventCategories.map(event => ({
-  //   //   ...event,
-  //   //   name: this.translateService.instant(event.name)
-  //   // }));
-
-  //   Object.assign(this.eventCategories);
-  // }
 
   fetchEventCategories(): void {
     this.eventsService.getEventCategories().subscribe(
@@ -66,9 +51,9 @@ export class PieGridComponent implements OnInit {
   }
 
   transformDataForChart(): void {
-    this.chartData = this.eventCategories.map(category => ({
+    this.eventCategories = this.eventCategories.map(category => ({
       name: this.currentLang === 'ar' ? category.nameAr : category.nameEn,
-      value: category.value 
+      value: category.value
     }));
   }
-  }
+}
