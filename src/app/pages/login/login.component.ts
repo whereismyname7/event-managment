@@ -5,12 +5,17 @@ import { AppRoutes } from '../../app.constants';
 import { TranslateService } from '@ngx-translate/core';
 
 
+interface user {
+  username: string;
+  password: string;
+}
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 
 export class LoginComponent {
   constructor(public translate: TranslateService, private router: Router) {}
@@ -19,7 +24,8 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
     username: new FormControl("", [
-      Validators.required
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z0-9._-]{1,}$/)
     ]),
     password: new FormControl("", [
       Validators.required,
@@ -42,6 +48,10 @@ export class LoginComponent {
 
   get showErrorMessage2(): boolean {
     return this.loginForm.controls.password.errors?.['minlength']
+  }
+
+  get showErrorMessage3(): boolean {
+    return this.loginForm.controls.username.errors?.['pattern']
   }
 
   get isUsernameValid(): boolean {

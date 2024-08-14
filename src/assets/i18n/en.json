@@ -7,6 +7,7 @@
     "CLICK_HERE": "Click here",
     "ERROR_MESSAGE_1": "Please enter username or password",
     "ERROR_MESSAGE_2": "Password must be at least 8 characters long",
+    "ERROR_MESSAGE_3": "Username can only contain letters, numbers, dashes (-), underscores (_), periods",
     "ERROR_FORM_INCOMPLETE": "Please fill in all fields",
     "SUCCESS_EVENT_ADDED": "Event added successfully",
     "ONLINE": "Online",

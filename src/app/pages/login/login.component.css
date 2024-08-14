@@ -55,3 +55,7 @@ a{
     color: #c6d7d7;
     transition: ease-in-out 0.3s;
 }
+
+.fixed-size{
+    width: 310px;
+}
