@@ -245,7 +245,7 @@ app.get('/event-attendance', (req, res) => {
   res.send(data);
 });
 
-
+ 
 app.get('/total-events', (req, res) => {
   const data = [
     {

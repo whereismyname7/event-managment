@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
-import { EventsService, eventType } from '../../../events.service';
+import { EventsService} from '../../../services/events.service';
+import { EventType } from '../../../models/event-type';
 
 @Component({
   selector: 'app-advanced-pie',
@@ -10,7 +11,7 @@ import { EventsService, eventType } from '../../../events.service';
 })
 export class AdvancedPieComponent implements OnInit {
 
-  eventTypes: eventType[] = [];
+  eventTypes: EventType[] = [];
   chartData: {
     name: string;
     value: number;

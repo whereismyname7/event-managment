@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Color, ScaleType, LegendPosition } from '@swimlane/ngx-charts';
-import { totalAttendance } from '../dummyData';
 import { TranslateService } from '@ngx-translate/core';
+import { EventsService } from '../../../services/events.service';
+import { EventAttendance } from '../../../models/event-attendance';
+
 
 @Component({
   selector: 'app-grouped-bar',
@@ -10,7 +12,18 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class GroupedBarComponent implements OnInit {
 
-  attendence = totalAttendance;
+  currentLang: string = '';
+
+  attendence : EventAttendance[] = []
+  chartData: {
+    name: string;
+    series: {
+      name: string;
+      value: number;
+    }[]
+
+  }[] = [];
+
   view: [number,number] = [540,350]
 
   // options
@@ -35,31 +48,44 @@ export class GroupedBarComponent implements OnInit {
   yScaleMax: number = 20000;
   barPadding: number = 2;
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private eventsService: EventsService) {
     this.translateService.addLangs(['en', 'ar']);
     this.translateService.setDefaultLang('ar');
 
     const browserLang = this.translateService.getBrowserLang();
-    this.translateService.use(browserLang && browserLang.match(/en|ar/) ? browserLang : 'en');
-    this.translateEvents();
+    this.currentLang = browserLang && browserLang.match(/en|ar/) ? browserLang : 'ar';
+    this.translateService.use(this.currentLang);
 
   }
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
-      this.translateEvents();
+      this.currentLang = this.translateService.currentLang;
+      this.transformDataForChart();
     });
+    this.fetchEventTypes();
   }
-  translateEvents() {
 
-    this.attendence = totalAttendance.map(event => ({
-      ...event,
-      series: event.series.map(series => ({
-        ...series,
-        name: this.translateService.instant(series.name)
+
+  fetchEventTypes(): void {
+    this.eventsService.getEventAttendence().subscribe(
+      (data) => {
+        this.attendence = data;    
+        this.transformDataForChart();
+      },
+      (error) => {
+        console.error('Error fetching event attendence:', error);
+      },
+    );
+  }
+
+  transformDataForChart(): void {
+    this.chartData = this.attendence.map(event => ({
+      name: `${event.name}`,
+      series: event.series.map(item => ({
+        name: this.currentLang === 'ar' ? item.nameAr : item.nameEn,
+        value: item.value
       }))
     }));
-
-    Object.assign(this.attendence);
   }
 
 }
