@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
-import { EventsService } from '../../../events.service';
-import { EventCategory } from '../../../events.service';
+import { EventsService } from '../../../services/events.service';
+import { EventCategory } from '../../../models/event-category';
 
 
 
@@ -14,7 +14,10 @@ import { EventCategory } from '../../../events.service';
 })
 export class PieGridComponent implements OnInit {
   eventCategories: EventCategory[] = [];
-  chartData: any[] = [];
+  chartData: {
+    name: string;
+    value: number;
+  }[] = [];
   currentLang: string;
   view: [number, number] = [640, 200];
 
