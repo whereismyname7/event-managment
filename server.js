@@ -25,6 +25,9 @@ app.get('/event-categories', (req, res) => {
       "value": 4000
     },
   ]
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.send(data);
 });
 
@@ -47,6 +50,9 @@ app.get('/event-types', (req, res) => {
       }
     },
   ]
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.send(data);
 });
 
@@ -233,6 +239,9 @@ app.get('/event-attendance', (req, res) => {
       ]
     }
   ]
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.send(data);
 });
 
@@ -420,6 +429,9 @@ app.get('/total-events', (req, res) => {
       ]
     }
   ]
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.send(data);
 });
 
