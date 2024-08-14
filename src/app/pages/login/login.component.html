@@ -17,13 +17,13 @@
                 *ngIf="submitted && (loginForm.controls.username.invalid || loginForm.controls.password.invalid)">
                  <i class="bi bi-exclamation-circle-fill mx-1"></i>
                 <div class="m-1" *ngIf="showErrorMessage">
-                    {{ 'ERROR_MESSAGE_1' | translate }}
+                    {{ 'ERROR_MESSAGE_MISSING_CREDENTIALS' | translate }}
                 </div>
                 <div class="m-1" *ngIf="showErrorMessage2 && !showErrorMessage && !showErrorMessage3">
-                    {{ 'ERROR_MESSAGE_2' | translate }} 
+                    {{ 'ERROR_MESSAGE_PASSWORD_LENGTH' | translate }} 
                 </div>
                 <div class="m-1" *ngIf="showErrorMessage3 && !showErrorMessage">
-                    {{ 'ERROR_MESSAGE_3' | translate }} 
+                    {{ 'ERROR_MESSAGE_USERNAME_CONDITIONS' | translate }} 
                 </div>
             </div>
             <form class="my-3 flex-grow-1 w-100 form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
