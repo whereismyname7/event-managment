@@ -56,12 +56,7 @@ export class StackedBarComponent implements OnInit, AfterViewInit {
   fetchCounterExcceded = false;
 
   constructor(private translateService: TranslateService, private eventsService: EventsService, @Inject(PLATFORM_ID) private platformId: Object,) {
-    this.translateService.addLangs(['en', 'ar']);
-    this.translateService.setDefaultLang('ar');
-
-    const browserLang = this.translateService.getBrowserLang();
-    this.currentLang = browserLang && browserLang.match(/en|ar/) ? browserLang : 'ar';
-    this.translateService.use(this.currentLang);
+    this.currentLang = translateService.currentLang;
     
   }
   ngAfterViewInit(): void {
