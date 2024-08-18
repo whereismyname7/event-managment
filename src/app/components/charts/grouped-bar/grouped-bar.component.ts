@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Color, ScaleType, LegendPosition } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../services/events.service';
 import { EventAttendance } from '../../../models/event-attendance';
 import { timer } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -52,7 +53,7 @@ export class GroupedBarComponent implements OnInit, AfterViewInit {
   fetchCounter = 0;
   fetchCounterExcceded = false;
 
-  constructor(private translateService: TranslateService, private eventsService: EventsService) {
+  constructor(private translateService: TranslateService, private eventsService: EventsService, @Inject(PLATFORM_ID) private platformId: Object,) {
     this.translateService.addLangs(['en', 'ar']);
     this.translateService.setDefaultLang('ar');
 
@@ -70,16 +71,13 @@ export class GroupedBarComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
-    document.addEventListener('DOMContentLoaded', () => {
+    if (isPlatformBrowser(this.platformId)) {
       timer(10000).subscribe(() => {
-        console.log('DOMContentLoaded');
-        console.log(this.isLoaded);
         if (!this.isLoaded) {
           this.fetchEventTypes2();
         }
       });
-    });
+    };
   }
 
 
@@ -97,18 +95,11 @@ export class GroupedBarComponent implements OnInit, AfterViewInit {
     if (this.fetchCounter < 5) {
       this.eventsService.getEventAttendence().subscribe(
         (data) => {
-          console.log('data');
-          console.log(this.isLoaded);
           this.attendence = data;
           this.isLoaded = true;
           this.transformDataForChart();
         },
         (error) => {
-          console.log('error');
-          console.log(this.isLoaded);
-          console.log(this.fetchCounter);
-          // console.error('Error fetching event types:', error);
-          // timer(3000).subscribe(() => {   });  
         },
       );
     }
@@ -121,17 +112,11 @@ export class GroupedBarComponent implements OnInit, AfterViewInit {
     if (this.fetchCounter < 3) {
       this.eventsService.getEventAttendence().subscribe(
         (data) => {
-          console.log('data');
-          console.log(this.isLoaded);
           this.attendence = data;
           this.isLoaded = true;
           this.transformDataForChart();
         },
         (error) => {
-          console.log('error');
-          console.log(this.isLoaded);
-          console.log(this.fetchCounter);
-          // console.error('Error fetching event types:', error);
           timer(10000).subscribe(() => { this.fetchEventTypes2(); });
         },
       );

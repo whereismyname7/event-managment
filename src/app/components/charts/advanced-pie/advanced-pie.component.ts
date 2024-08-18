@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../services/events.service';
 import { EventType } from '../../../models/event-type';
 import { timer } from 'rxjs';
 import { time } from 'console';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-advanced-pie',
@@ -38,7 +39,7 @@ export class AdvancedPieComponent implements OnInit, AfterViewInit {
   fetchCounter = 0;
   fetchCounterExcceded = false;
 
-  constructor(private translateService: TranslateService, private eventsService: EventsService) {
+  constructor(private translateService: TranslateService, private eventsService: EventsService, @Inject(PLATFORM_ID) private platformId: Object,) {
     this.translateService.addLangs(['en', 'ar']);
     this.translateService.setDefaultLang('ar');
     const browserLang = this.translateService.getBrowserLang();
@@ -47,26 +48,18 @@ export class AdvancedPieComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
-    document.addEventListener('DOMContentLoaded', () => {
+    if (isPlatformBrowser(this.platformId)) {
       timer(10000).subscribe(() => {
-        console.log('DOMContentLoaded');
-        console.log(this.isLoaded);
         if (!this.isLoaded) {
           this.fetchEventTypes2();
         }
       });
-    });
+    };
   }
   ngOnInit(): void {
-    console.log('init');
-    console.log(this.isLoaded);
-
     this.translateService.onLangChange.subscribe(() => {
       this.currentLang = this.translateService.currentLang;
       this.transformDataForChart();
-      console.log('lang changed');
-      console.log(this.isLoaded);
     });
     this.fetchEventTypes();
   }
@@ -76,18 +69,12 @@ export class AdvancedPieComponent implements OnInit, AfterViewInit {
     if (this.fetchCounter < 5) {
       this.eventsService.getEventTypes().subscribe(
         (data) => {
-          console.log('data');
-          console.log(this.isLoaded);
           this.eventTypes = data;
           this.isLoaded = true;
           this.transformDataForChart();
         },
         (error) => {
           console.log('error');
-          console.log(this.isLoaded);
-          console.log(this.fetchCounter);
-          // console.error('Error fetching event types:', error);
-          // timer(3000).subscribe(() => {   });  
         },
       );
     }
@@ -100,17 +87,11 @@ export class AdvancedPieComponent implements OnInit, AfterViewInit {
     if (this.fetchCounter < 3) {
       this.eventsService.getEventTypes().subscribe(
         (data) => {
-          console.log('data');
-          console.log(this.isLoaded);
           this.eventTypes = data;
           this.isLoaded = true;
           this.transformDataForChart();
         },
         (error) => {
-          console.log('error');
-          console.log(this.isLoaded);
-          console.log(this.fetchCounter);
-          // console.error('Error fetching event types:', error);
           timer(10000).subscribe(() => { this.fetchEventTypes2(); });
         },
       );
@@ -121,10 +102,7 @@ export class AdvancedPieComponent implements OnInit, AfterViewInit {
   }
 
   transformDataForChart(): void {
-
     if (this.isLoaded) {
-      console.log('tl if');
-      console.log(this.isLoaded);
       this.chartData = this.eventTypes.map(type => ({
         name: this.currentLang === 'ar' ? type.nameAr : type.nameEn,
         value: type.value,

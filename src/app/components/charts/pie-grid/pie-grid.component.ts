@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../services/events.service';
 import { EventCategory } from '../../../models/event-category';
 import { timer } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 
 
@@ -33,52 +34,46 @@ export class PieGridComponent implements OnInit, AfterViewInit {
   fetchCounter = 0;
   fetchCounterExcceded = false;
 
-  constructor(private translateService: TranslateService, private eventsService: EventsService) {
+  constructor(private translateService: TranslateService, private eventsService: EventsService, @Inject(PLATFORM_ID) private platformId: Object,) {
     this.translateService.addLangs(['en', 'ar']);
     this.translateService.setDefaultLang('ar');
     const browserLang = this.translateService.getBrowserLang();
     this.currentLang = browserLang && browserLang.match(/en|ar/) ? browserLang : 'ar';
     this.translateService.use(this.currentLang)
   }
+
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
-    document.addEventListener('DOMContentLoaded', () => {
+    console.log('b4 is');
+    if (isPlatformBrowser(this.platformId)) {
+      console.log('after isBrowser');
       timer(10000).subscribe(() => {
-        console.log('DOMContentLoaded');
-        console.log(this.isLoaded);
+        console.log('after timer');
         if (!this.isLoaded) {
           this.fetchEventCategories2();
+          console.log('after fetch');
         }
       });
-    });
+    }
   }
+
+
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
       this.currentLang = this.translateService.currentLang;
-
       this.transformDataForChart();
     });
     this.fetchEventCategories();
   }
-
-  
   fetchEventCategories(): void {
     this.fetchCounter++;
     if (this.fetchCounter < 5) {
       this.eventsService.getEventCategories().subscribe(
         (data) => {
-          console.log('data');
-          console.log(this.isLoaded);
           this.eventCategories = data;
           this.isLoaded = true;
           this.transformDataForChart();
         },
         (error) => {
-          console.log('error');
-          console.log(this.isLoaded);
-          console.log(this.fetchCounter);
-          // console.error('Error fetching event types:', error);
-          // timer(3000).subscribe(() => {   });  
         },
       );
     }
@@ -91,17 +86,11 @@ export class PieGridComponent implements OnInit, AfterViewInit {
     if (this.fetchCounter < 3) {
       this.eventsService.getEventCategories().subscribe(
         (data) => {
-          console.log('data');
-          console.log(this.isLoaded);
           this.eventCategories = data;
           this.isLoaded = true;
           this.transformDataForChart();
         },
         (error) => {
-          console.log('error');
-          console.log(this.isLoaded);
-          console.log(this.fetchCounter);
-          // console.error('Error fetching event types:', error);
           timer(10000).subscribe(() => { this.fetchEventCategories2(); });
         },
       );
@@ -112,7 +101,6 @@ export class PieGridComponent implements OnInit, AfterViewInit {
   }
 
   transformDataForChart(): void {
-    console.log(this.currentLang);
     this.chartData = this.eventCategories.map(category => ({
       name: this.currentLang === 'ar' ? category.nameAr : category.nameEn,
       value: category.value
