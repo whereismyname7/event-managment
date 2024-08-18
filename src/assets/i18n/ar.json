@@ -9,6 +9,7 @@
     "ERROR_MESSAGE_PASSWORD_LENGTH": "كلمة المرور يجب أن تتكون من 8 رموز على الأقل",
     "ERROR_MESSAGE_USERNAME_CONDITIONS": " اسم المستخدم يجب أن يحتوي فقط على أحرف إنجليزية، وأرقام، وشرطات(-،_)، ونقاط",
     "ERROR_FORM_INCOMPLETE": "الرجاء تعبئة جميع الحقول",
+    "ERROR_NO_RESPONSE":"حصل خطأ في تحميل البيانات",
     "SUCCESS_EVENT_ADDED": "تم إضافة الفعالية بنجاح",
 
     "ONLINE": "عن بعد",

@@ -30,3 +30,6 @@ body { margin: 0; font-family:Neo Sans Arabic; }
 }
 
 
+body{
+  overflow-x: hidden;
+}

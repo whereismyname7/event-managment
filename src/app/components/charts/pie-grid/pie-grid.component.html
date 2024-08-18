@@ -2,11 +2,25 @@
     <h3 class="subtitle mt-2">{{'EVENTS_CATEGORIES' | translate}}</h3>
 </div>
 
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center ltr">
     <div class="row">
-        <div class="pos">
+        <div class="pos" *ngIf="isLoaded">
             <ngx-charts-pie-grid [view]="view" [scheme]="colorScheme" [results]="chartData">
             </ngx-charts-pie-grid>
         </div>
+        <div class="px-3 py-4 mx-3 mt-4" *ngIf="!isLoaded">
+            @if (!fetchCounterExcceded) {<div *ngIf="!fetchCounterExcceded"><mat-spinner
+                    [strokeWidth]="4"></mat-spinner></div>}
+            @if (fetchCounterExcceded) {
+            <div *ngIf="fetchCounterExcceded">
+                <div class="d-flex justify-content-start align-items-center" id="errormsg">
+                    <i class="bi bi-database-x mx-1"></i>
+                    <div class="m-1">
+                        {{ 'ERROR_NO_RESPONSE' | translate }}
+                    </div>
+                </div>
+            </div>}
+        </div>
     </div>
+
 </div>

@@ -13,3 +13,6 @@
     position: relative;
     left: 18%;
 }
+:host .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #264653;
+}

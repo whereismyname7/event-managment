@@ -24,3 +24,6 @@ color: #264653;
 ::ng-deep .gridpanel {
     display: none;
 }
+:host .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #264653;
+  }

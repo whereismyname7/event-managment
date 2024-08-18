@@ -38,6 +38,7 @@ import { EventManagmentComponent } from './pages/event-managment/event-managment
 import { SwitchComponent } from './components/layouts/switch/switch.component';
 import { EventDetailsComponent } from './pages/event-details/event-details.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -101,6 +102,7 @@ export const MY_DATE_FORMATS = {
     NgxMaterialTimepickerModule.setOpts('en-US',''),
     NgxMaterialTimepickerModule.setOpts('ar-AE', 'arab'),
     MatPaginatorModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     provideClientHydration(),

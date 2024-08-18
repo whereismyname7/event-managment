@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
-import { EventsService} from '../../../services/events.service';
+import { EventsService } from '../../../services/events.service';
 import { EventType } from '../../../models/event-type';
+import { timer } from 'rxjs';
+import { time } from 'console';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-advanced-pie',
   templateUrl: './advanced-pie.component.html',
   styleUrl: './advanced-pie.component.css'
 })
-export class AdvancedPieComponent implements OnInit {
+export class AdvancedPieComponent implements OnInit, AfterViewInit {
 
   eventTypes: EventType[] = [];
   chartData: {
@@ -32,14 +35,26 @@ export class AdvancedPieComponent implements OnInit {
     group: ScaleType.Ordinal,
     domain: ['#E9C46A', '#5FB6AB']
   };
+  isLoaded = false;
+  fetchCounter = 0;
+  fetchCounterExcceded = false;
 
-  constructor(private translateService: TranslateService, private eventsService: EventsService) {
+  constructor(private translateService: TranslateService, private eventsService: EventsService, @Inject(PLATFORM_ID) private platformId: Object,) {
     this.translateService.addLangs(['en', 'ar']);
     this.translateService.setDefaultLang('ar');
     const browserLang = this.translateService.getBrowserLang();
     this.currentLang = browserLang && browserLang.match(/en|ar/) ? browserLang : 'ar';
     this.translateService.use(this.currentLang);
 
+  }
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      timer(10000).subscribe(() => {
+        if (!this.isLoaded) {
+          this.fetchEventTypes2();
+        }
+      });
+    };
   }
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
@@ -50,24 +65,51 @@ export class AdvancedPieComponent implements OnInit {
   }
 
   fetchEventTypes(): void {
-    this.eventsService.getEventTypes().subscribe(
-      (data) => {
-        this.eventTypes = data;
-        this.transformDataForChart();
-      },
-      (error) => {
-        console.error('Error fetching event types:', error);
-      },
-    );
+    this.fetchCounter++;
+    if (this.fetchCounter < 5) {
+      this.eventsService.getEventTypes().subscribe(
+        (data) => {
+          this.eventTypes = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          console.log('error');
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
+  }
+  fetchEventTypes2(): void {
+    this.fetchCounter++;
+    if (this.fetchCounter < 3) {
+      this.eventsService.getEventTypes().subscribe(
+        (data) => {
+          this.eventTypes = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          timer(10000).subscribe(() => { this.fetchEventTypes2(); });
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
   }
 
   transformDataForChart(): void {
-    this.chartData = this.eventTypes.map(type => ({
-      name: this.currentLang === 'ar' ? type.nameAr : type.nameEn,
-      value: type.value,
-      extra: { code: type.extra.code },
-    }));
-    Object.assign(this, { chartData: this.chartData });
+    if (this.isLoaded) {
+      this.chartData = this.eventTypes.map(type => ({
+        name: this.currentLang === 'ar' ? type.nameAr : type.nameEn,
+        value: type.value,
+        extra: { code: type.extra.code },
+      }));
+      Object.assign(this, { chartData: this.chartData });
+    }
   }
 
   percentageFormatting(value: number): string {
