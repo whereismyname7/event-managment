@@ -47,7 +47,7 @@ export class PieGridComponent implements OnInit, AfterViewInit {
         console.log('DOMContentLoaded');
         console.log(this.isLoaded);
         if (!this.isLoaded) {
-          this.fetchEventTypes2();
+          this.fetchEventCategories2();
         }
       });
     });
@@ -61,18 +61,8 @@ export class PieGridComponent implements OnInit, AfterViewInit {
     this.fetchEventCategories();
   }
 
+  
   fetchEventCategories(): void {
-    this.eventsService.getEventCategories().subscribe(
-      (data) => {
-        this.eventCategories = data;
-        this.transformDataForChart();
-      },
-      (error) => {
-        console.error('Error fetching event categories:', error);
-      }
-    );
-  }
-  fetchEventTypes(): void {
     this.fetchCounter++;
     if (this.fetchCounter < 5) {
       this.eventsService.getEventCategories().subscribe(
@@ -96,7 +86,7 @@ export class PieGridComponent implements OnInit, AfterViewInit {
       timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
     }
   }
-  fetchEventTypes2(): void {
+  fetchEventCategories2(): void {
     this.fetchCounter++;
     if (this.fetchCounter < 3) {
       this.eventsService.getEventCategories().subscribe(
@@ -112,7 +102,7 @@ export class PieGridComponent implements OnInit, AfterViewInit {
           console.log(this.isLoaded);
           console.log(this.fetchCounter);
           // console.error('Error fetching event types:', error);
-          timer(10000).subscribe(() => { this.fetchEventTypes2(); });
+          timer(10000).subscribe(() => { this.fetchEventCategories2(); });
         },
       );
     }
