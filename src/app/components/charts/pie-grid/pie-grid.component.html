@@ -8,7 +8,7 @@
             <ngx-charts-pie-grid [view]="view" [scheme]="colorScheme" [results]="chartData">
             </ngx-charts-pie-grid>
         </div>
-        <div class="p-3 mx-3 mt-4" *ngIf="!isLoaded">
+        <div class="px-3 py-4 mx-3 mt-4" *ngIf="!isLoaded">
             @if (!fetchCounterExcceded) {<div *ngIf="!fetchCounterExcceded"><mat-spinner
                     [strokeWidth]="4"></mat-spinner></div>}
             @if (fetchCounterExcceded) {
