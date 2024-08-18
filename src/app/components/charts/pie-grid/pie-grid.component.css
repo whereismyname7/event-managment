@@ -1,9 +1,15 @@
 .subtitle {
+    font-size: 26px;
     font-weight: 500;
     color: #264653;
 }
-
+.ltr{
+    direction: ltr;
+}
 .pos{
     position: relative;
     left: 0.5%;
 }
+:host .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #264653;
+  }

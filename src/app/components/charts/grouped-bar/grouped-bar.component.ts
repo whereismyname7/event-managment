@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Color, ScaleType, LegendPosition } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../services/events.service';
 import { EventAttendance } from '../../../models/event-attendance';
+import { timer } from 'rxjs';
 
 
 @Component({
@@ -10,11 +11,11 @@ import { EventAttendance } from '../../../models/event-attendance';
   templateUrl: './grouped-bar.component.html',
   styleUrl: './grouped-bar.component.css'
 })
-export class GroupedBarComponent implements OnInit {
+export class GroupedBarComponent implements OnInit, AfterViewInit {
 
   currentLang: string = '';
 
-  attendence : EventAttendance[] = []
+  attendence: EventAttendance[] = []
   chartData: {
     name: string;
     series: {
@@ -24,7 +25,7 @@ export class GroupedBarComponent implements OnInit {
 
   }[] = [];
 
-  view: [number,number] = [540,350]
+  view: [number, number] = [540, 350]
 
   // options
   legendPosition: LegendPosition = LegendPosition.Below;
@@ -42,11 +43,14 @@ export class GroupedBarComponent implements OnInit {
     name: 'custom',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#0496ff','#fa5b7e']
+    domain: ['#0496ff', '#fa5b7e']
   };
 
   yScaleMax: number = 20000;
   barPadding: number = 2;
+  isLoaded = false;
+  fetchCounter = 0;
+  fetchCounterExcceded = false;
 
   constructor(private translateService: TranslateService, private eventsService: EventsService) {
     this.translateService.addLangs(['en', 'ar']);
@@ -65,18 +69,19 @@ export class GroupedBarComponent implements OnInit {
     this.fetchEventTypes();
   }
 
-
-  fetchEventTypes(): void {
-    this.eventsService.getEventAttendence().subscribe(
-      (data) => {
-        this.attendence = data;    
-        this.transformDataForChart();
-      },
-      (error) => {
-        console.error('Error fetching event attendence:', error);
-      },
-    );
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    document.addEventListener('DOMContentLoaded', () => {
+      timer(10000).subscribe(() => {
+        console.log('DOMContentLoaded');
+        console.log(this.isLoaded);
+        if (!this.isLoaded) {
+          this.fetchEventTypes2();
+        }
+      });
+    });
   }
+
 
   transformDataForChart(): void {
     this.chartData = this.attendence.map(event => ({
@@ -86,6 +91,54 @@ export class GroupedBarComponent implements OnInit {
         value: item.value
       }))
     }));
+  }
+  fetchEventTypes(): void {
+    this.fetchCounter++;
+    if (this.fetchCounter < 5) {
+      this.eventsService.getEventAttendence().subscribe(
+        (data) => {
+          console.log('data');
+          console.log(this.isLoaded);
+          this.attendence = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          console.log('error');
+          console.log(this.isLoaded);
+          console.log(this.fetchCounter);
+          // console.error('Error fetching event types:', error);
+          // timer(3000).subscribe(() => {   });  
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
+  }
+  fetchEventTypes2(): void {
+    this.fetchCounter++;
+    if (this.fetchCounter < 3) {
+      this.eventsService.getEventAttendence().subscribe(
+        (data) => {
+          console.log('data');
+          console.log(this.isLoaded);
+          this.attendence = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          console.log('error');
+          console.log(this.isLoaded);
+          console.log(this.fetchCounter);
+          // console.error('Error fetching event types:', error);
+          timer(10000).subscribe(() => { this.fetchEventTypes2(); });
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
   }
 
 }

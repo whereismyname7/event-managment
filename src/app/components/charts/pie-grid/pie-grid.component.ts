@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../services/events.service';
 import { EventCategory } from '../../../models/event-category';
+import { timer } from 'rxjs';
 
 
 
@@ -12,7 +13,7 @@ import { EventCategory } from '../../../models/event-category';
   templateUrl: './pie-grid.component.html',
   styleUrl: './pie-grid.component.css'
 })
-export class PieGridComponent implements OnInit {
+export class PieGridComponent implements OnInit, AfterViewInit {
   eventCategories: EventCategory[] = [];
   chartData: {
     name: string;
@@ -28,6 +29,9 @@ export class PieGridComponent implements OnInit {
     group: ScaleType.Ordinal,
     domain: ['#FA5A7D', '#4BBF65', '#FF9479', '#C48CFF']
   };
+  isLoaded = false;
+  fetchCounter = 0;
+  fetchCounterExcceded = false;
 
   constructor(private translateService: TranslateService, private eventsService: EventsService) {
     this.translateService.addLangs(['en', 'ar']);
@@ -36,10 +40,22 @@ export class PieGridComponent implements OnInit {
     this.currentLang = browserLang && browserLang.match(/en|ar/) ? browserLang : 'ar';
     this.translateService.use(this.currentLang)
   }
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    document.addEventListener('DOMContentLoaded', () => {
+      timer(10000).subscribe(() => {
+        console.log('DOMContentLoaded');
+        console.log(this.isLoaded);
+        if (!this.isLoaded) {
+          this.fetchEventTypes2();
+        }
+      });
+    });
+  }
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
       this.currentLang = this.translateService.currentLang;
-      
+
       this.transformDataForChart();
     });
     this.fetchEventCategories();
@@ -56,6 +72,54 @@ export class PieGridComponent implements OnInit {
       }
     );
   }
+  fetchEventTypes(): void {
+    this.fetchCounter++;
+    if (this.fetchCounter < 5) {
+      this.eventsService.getEventCategories().subscribe(
+        (data) => {
+          console.log('data');
+          console.log(this.isLoaded);
+          this.eventCategories = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          console.log('error');
+          console.log(this.isLoaded);
+          console.log(this.fetchCounter);
+          // console.error('Error fetching event types:', error);
+          // timer(3000).subscribe(() => {   });  
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
+  }
+  fetchEventTypes2(): void {
+    this.fetchCounter++;
+    if (this.fetchCounter < 3) {
+      this.eventsService.getEventCategories().subscribe(
+        (data) => {
+          console.log('data');
+          console.log(this.isLoaded);
+          this.eventCategories = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          console.log('error');
+          console.log(this.isLoaded);
+          console.log(this.fetchCounter);
+          // console.error('Error fetching event types:', error);
+          timer(10000).subscribe(() => { this.fetchEventTypes2(); });
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
+  }
 
   transformDataForChart(): void {
     console.log(this.currentLang);
@@ -64,5 +128,5 @@ export class PieGridComponent implements OnInit {
       value: category.value
     }));
   }
-  
+
 }

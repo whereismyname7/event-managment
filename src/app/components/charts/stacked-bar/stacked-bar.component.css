@@ -20,3 +20,7 @@ color: #264653;
 .ltr{
     direction: ltr;
 }
+
+:host .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #264653;
+  }

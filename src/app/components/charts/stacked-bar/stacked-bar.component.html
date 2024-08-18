@@ -1,7 +1,7 @@
 <div class="container">
     <p class="subtitle mt-2">{{ 'TOTAL_EVENTS' | translate }}</p>
 </div>
-<div class="container ltr">
+<div class="container ltr" *ngIf="isLoaded">
     <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center">
             <ngx-charts-bar-vertical-stacked
@@ -24,4 +24,20 @@
             <span class="legend-item mx-4"><span class="legend-color" style="background-color: #ae4390;"></span>{{ 'PHYSICAL' | translate }}</span>
         </div>
     </div>
+</div>
+<div class="ltr container d-flex justify-content-center align-items-center  my-5 py-5" *ngIf="!isLoaded">
+    @if (!fetchCounterExcceded) {<div *ngIf="!fetchCounterExcceded"><mat-spinner
+            [strokeWidth]="4"></mat-spinner></div>}
+
+    <!-- <p *ngIf="fetchCounter==5">{{ 'NO_DATA' | translate }}</p> -->
+    @if (fetchCounterExcceded) {
+    <div *ngIf="fetchCounterExcceded">
+        <!-- <p> 'ERROR_404' </p> -->
+        <div class="d-flex justify-content-start align-items-center p-1 m-4 " id="errormsg">
+            <i class="bi bi-database-x mx-1"></i>
+            <div class="m-1">
+                {{ 'ERROR_404' | translate }}
+            </div>
+        </div>
+    </div>}
 </div>

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Color, ScaleType, LegendPosition } from '@swimlane/ngx-charts';
 import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from '../../../services/events.service';
 import { TotalEvents } from '../../../models/total-events';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-stacked-bar',
   templateUrl: './stacked-bar.component.html',
   styleUrl: './stacked-bar.component.css'
 })
-export class StackedBarComponent implements OnInit {
+export class StackedBarComponent implements OnInit,AfterViewInit {
 
 
   currentLang: string = '';
@@ -49,6 +50,9 @@ export class StackedBarComponent implements OnInit {
 
   yScaleMax: number = 25000;
   barPadding: number = 25;
+  isLoaded = false;
+  fetchCounter = 0;
+  fetchCounterExcceded = false;
 
   constructor(private translateService: TranslateService, private eventsService: EventsService) {
     this.translateService.addLangs(['en', 'ar']);
@@ -60,7 +64,18 @@ export class StackedBarComponent implements OnInit {
     
   }
 
-
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    document.addEventListener('DOMContentLoaded', () => {
+      timer(10000).subscribe(() => {
+        console.log('DOMContentLoaded');
+        console.log(this.isLoaded);
+        if (!this.isLoaded) {
+          this.fetchEventTypes2();
+        }
+      });
+    });
+  }
   ngOnInit(): void {
     this.translateService.onLangChange.subscribe(() => {
       this.currentLang = this.translateService.currentLang;
@@ -70,16 +85,54 @@ export class StackedBarComponent implements OnInit {
   }
 
 
+  
   fetchEventTypes(): void {
-    this.eventsService.getTotalEvents().subscribe(
-      (data) => {
-        this.events = data;    
-        this.transformDataForChart();
-      },
-      (error) => {
-        console.error('Error fetching event attendence:', error);
-      },
-    );
+    this.fetchCounter++;
+    if (this.fetchCounter < 5) {
+      this.eventsService.getTotalEvents().subscribe(
+        (data) => {
+          console.log('data');
+          console.log(this.isLoaded);
+          this.events = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          console.log('error');
+          console.log(this.isLoaded);
+          console.log(this.fetchCounter);
+          // console.error('Error fetching event types:', error);
+          // timer(3000).subscribe(() => {   });  
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
+  }
+  fetchEventTypes2(): void {
+    this.fetchCounter++;
+    if (this.fetchCounter < 3) {
+      this.eventsService.getTotalEvents().subscribe(
+        (data) => {
+          console.log('data');
+          console.log(this.isLoaded);
+          this.events = data;
+          this.isLoaded = true;
+          this.transformDataForChart();
+        },
+        (error) => {
+          console.log('error');
+          console.log(this.isLoaded);
+          console.log(this.fetchCounter);
+          // console.error('Error fetching event types:', error);
+          timer(10000).subscribe(() => { this.fetchEventTypes2(); });
+        },
+      );
+    }
+    else {
+      timer(5000).subscribe(() => { this.fetchCounterExcceded = true; });
+    }
   }
 
   transformDataForChart(): void {

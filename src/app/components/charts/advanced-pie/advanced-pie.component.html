@@ -4,32 +4,24 @@
 
 <div class="ltr container d-flex justify-content-center align-items-center">
     <div class="row">
-
         <div class="pos" *ngIf="isLoaded">
             <ngx-charts-advanced-pie-chart [view]="view" [scheme]="colorScheme" [results]="chartData"
                 [gradient]="gradient" [animations]="animations" [label]="label"
                 [percentageFormatting]="percentageFormatting">
             </ngx-charts-advanced-pie-chart>
         </div>
-
-        <div class="p-3 me-3 mt-2" *ngIf="!isLoaded">
+        <div class="p-3 m-3" *ngIf="!isLoaded">
             @if (!fetchCounterExcceded) {<div *ngIf="!fetchCounterExcceded"><mat-spinner
                     [strokeWidth]="4"></mat-spinner></div>}
-
-            <!-- <p *ngIf="fetchCounter==5">{{ 'NO_DATA' | translate }}</p> -->
             @if (fetchCounterExcceded) {
             <div *ngIf="fetchCounterExcceded">
-                <!-- <p> 'ERROR_404' </p> -->
-                <div class="d-flex justify-content-start align-items-center p-1 m-4 " id="errormsg">
-                    <i class="bi bi-exclamation-circle-fill mx-1"></i>
+                <div class="d-flex justify-content-start align-items-center " id="errormsg">
+                    <i class="bi bi-database-x mx-1"></i>
                     <div class="m-1">
                         {{ 'ERROR_404' | translate }}
                     </div>
                 </div>
             </div>}
-
         </div>
-
-
     </div>
 </div>
